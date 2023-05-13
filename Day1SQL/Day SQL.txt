@@ -1,0 +1,114 @@
+
+SQL> spool on
+SQL> conn
+Enter user-name: scott
+Enter password:
+Connected.
+SQL> selet table_name from tabs;
+SP2-0734: unknown command beginning "selet tabl..." - rest of line ignored.
+SQL> select table_name from tabs;
+
+TABLE_NAME
+------------------------------
+DEPT
+EMP
+BONUS
+SALGRADE
+
+SQL> create table std(
+  2  std_id number(3) primary key,
+  3  std_name varchar2(40));
+
+Table created.
+
+SQL> alter table std add address varchar2(50);
+
+Table altered.
+
+SQL> alter table std add(phone number(4),sal number(6));
+
+Table altered.
+
+SQL> alter table std modify phone number(5) ;
+
+Table altered.
+
+SQL> alter table std drop column phone;
+
+Table altered.
+
+SQL> alter table std drop column address;
+
+Table altered.
+
+SQL> alter table std drop column sal;
+
+Table altered.
+
+SQL> alter table std rename to student;
+
+Table altered.
+
+SQL> alter table std rename column name to naame;
+alter table std rename column name to naame
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> desc std;
+ERROR:
+ORA-04043: object std does not exist
+
+
+SQL> desct student;
+SP2-0734: unknown command beginning "desct stud..." - rest of line ignored.
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STD_ID                                    NOT NULL NUMBER(3)
+ STD_NAME                                           VARCHAR2(40)
+
+SQL> alter table student rename column std_name to name;
+
+Table altered.
+
+SQL> alter table student add constraint rest unique(name);
+
+Table altered.
+
+SQL> alter table student add rest unique(name);
+alter table student add rest unique(name)
+                                    *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table student drop constriant rest;
+alter table student drop constriant rest
+                         *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> select table student drop constraint rest;
+select table student drop constraint rest
+       *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> alter table student drop constraint rest;
+
+Table altered.
+
+SQL> spool off
+SQL> ;
+  1* alter table student drop constraint rest
+SQL> spool off;
+not spooling currently
+SQL> spool off;
+not spooling currently
+SQL> spool off
+not spooling currently
+SQL>
