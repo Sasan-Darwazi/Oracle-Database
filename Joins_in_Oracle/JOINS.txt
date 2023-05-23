@@ -1,0 +1,116 @@
+ Types of Joins:
+equi join (inner join)
+outer join
+   left outer join
+   right outer join
+   full outer join
+non equi join
+self join
+natural join.
+
+
+
+Day5:
+Inner join: 
+whenever when you want to get data from two table you need join.
+inner join or equie join retrivin data from the multiple/two table based on
+equality conditon which means it is used just ( = ).
+
+E.G:this example will show all the record from both table based on inner join clause.
+select c.c_name,c.c_lname,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id;
+
+---------------------
+E.G: This example will show the record by the name of whatever user write.
+select c.c_name,c.c_lname,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id
+  4  where c.c_name = 'Ahmad'; 
+-----------------------------------
+
+E.G: This example will show the record that ordered Iphone?
+select c.c_name,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id
+  4  where o.o_name = 'Iphone';
+--------------------------
+
+E.G:This example same as above example.
+select c.c_name,o.o_name from customer c, orders o
+where c.c_id = o.c_id and c.c_name = 'Nadir';
+
+
+
+
+non-equi join:Retriving data from multiple/two table based on
+not equality condition which means it is used any condition except ( = ).
+OPT which gets used ( <, >, <=, >=, !<, !>, !=, betweem , and),
+
+
+
+Natural join: column with the same name in source and target table are automatically assosciated with each other.
+which means each columns from source table and target tableare associated with each other if the columns has the same name.
+
+Source Table:Table which comes after FROM clause in the SELECT statement.
+Target Table: All the table which come after JOIN clause in the query.
+
+When the join query is executed then oracle starts matching data from the source table to the target table.
+if there is a hit for a matching source table data in the target table then the values is returned
+ex: select empno,ename,dname,loc from emp natural join dept;
+               src table                                trgt table
+---------------------------------------------------------
+left-Outer-Join:table mentioned first after on will have shown all record .
+table mentioned second will have matched data ora nulls.
+
+e.g: select f.f_id,f.f_name,f.uni_id,u.uni_id,u.uni_name 
+from faculty f left join uni u
+on f.uni_id = u.uni_id; it shows all from tbl1 by matching tbl1, if if the two table has null, the query will have shown this.
+----------------------------------------------------------------
+
+E.G: This Example first,will show all the record and second table will match the data.
+select c.c_name,p.p_id from citizen c
+left outer join passport p 
+on c.c_id = p.c_id;
+------------------------------------------------------------------
+
+Right-Outer join: table mentioned first will matching the data or null,
+and table second mentioned will shown all the record.
+
+E.G:This Example match the first table record or will have shown nul select c.c_name,p.p_id from citizen c
+right outer join passport p
+on c.c_id = p.c_id;
+
+Full-Outer-join: will show all the record from left and right table.
+E.G:
+select c.c_name,p.p_id from citizen c full outer join passport p
+on c.c_id = p.c_id;
+--------------------------------------------------------------------
+
+Self-Join:Joining a table-data by iteself is called self-join.
+.Can use with alias name of the table.
+.Can be implemented only on single-table.
+.When we compare a column values within the same table.
+
+E.G:How to find the same salary in the same table by ename.
+select * from emp e1,emp e2 where e1.sal = e2.sal and e2.sal = 2300;
+Or:
+select e1.empno,e1.ename,e1.sal from emp e1,emp e2 where e1.sal = e2.sal
+and e2.ename = 'nasir';
+------------------------------------------------------------
+E.G:How to find the same job into the same table.
+select e1.empno,e1.ename,e1.job,e1.sal from emp e1,emp e2
+ where e1.job = e2.job and e2.job = 'SALESMAN';
+       'join condition'     'addition condition' 
+
+----------------------------------------------------------------
+
+Cross/Cartesian-Join:Every record in one table is joined to every record in another table is called Cartesian-Join.
+E.X:Table A has 20 records
+    Table B has 50 records
+C-J will show 1000 result (20*50).
+
+E.G: Select empno,ename,sal,job,dname from emp cross join dept;
+     Select empno,ename,sal,job,dname from emp,dept;
+-----------------
+E.G: select ename,job,sal,dname from emp,dept where dname = 'SALES';
