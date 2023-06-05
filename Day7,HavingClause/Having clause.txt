@@ -1,0 +1,18 @@
+
+HAVING: select lasname,count(*) from emp
+where count(*)>1 group by lastname;
+.SQl doesnt allow that, cuz where cluase is used before the group by and the count(*).
+we have another function for that, HAVING.
+
+Having: filter record after the group by, and Having goes after the group by stmt.
+
+
+select empno,ename,count(*) from emp
+group by empno,ename
+having count(*) > 0;
+or having count(*) = 1;
+
+
+
+Database Objects:
+(Table,View,Index,Sequence,Function,Procedure)
