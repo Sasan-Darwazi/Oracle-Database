@@ -1,0 +1,215 @@
+z`	selecGroup BY:we can used the group rows bases on one or more column or expression: like we can group the record based on deptno,job,ename or year of joining.
+
+what the group by is doing?
+detail the data,
+the detail is take from the table.
+while the detail taken, the result called, summarize the data.
+and summarize the data use for analysis, cuz the detail got summarized then, summarize data easty for analysis.
+
+The purpose of G/P is grouping the data.
+
+
+E.G: if you want to show the sum(sal) based on deptno?
+select deptno,sum(sal) from emp
+group by deptno;
+
+
+E.G:It will shows sum(sal) based on dname?
+select dname,sum(sal) from dept inner join emp
+  2  on emp.deptno = dept.deptno
+  3  group by dname;
+
+
+E.G:It shows the record sum(sal) based on dname only two dept?
+ select dname,sum(sal) from dept
+  2  inner join emp
+  3  on emp.deptno = dept.deptno
+  4  where dname IN('ACCOUNTING','SALES')
+  5  group by dname;
+
+
+
+E.G: if you want to show how many emp is working in which table?
+select job,count(*) from emp
+group by job
+order by job asc;
+
+
+E.G:it shows the job-name group by job;
+select job from emp
+group by job;
+
+
+E.G:it shows the who get the same salary group by sal.
+select sal,count(*) from emp gorup b
+
+E.G: if you want to show which emp joined in which year?
+by to_char Funtion.
+
+select to_char(hiredate,'yyyy') as year,count(*)
+from emp
+group by to_char(hiredate,'yyyy');
+
+To-Char: Converts a number or date to a string value.
+.Return varchar2 data type.
+.Accepts many different number or date data types.
+
+Syntax: to_char(input_value,[format_mask]);
+
+E.G: select to_char(12345.68,'99999.9') from dual;
+
+E.G: select to_char(12345,'000000000') from dual;
+
+E.G: select to_char(sysdate,'yyyy-MM-DD') from dual;
+
+E.G: select to_char(sysdate,'Month') from dual;
+
+
+E.G: if you want to show the ename,job as group?
+select ename,job,count(*) from emp
+group by ename,job
+order by ename,job asc;
+
+
+E.G: if you want to show, deptno and sum(sal) where deptno in(10,20)?
+select deptno,sum(sal) from emp
+where deptno IN(10,20)
+group by deptno
+order by 1 asc;
+
+
+E.G: if you want to show department name and sum(sal)?
+select dept.dname,sum(sal) from emp
+inner join dept
+on dept.deptno = emp.deptno
+group by dname
+order by 1 asc;
+----------------------------
+
+E.G: If you want to show dname that its sum(sal) is bigger next to 13000.
+select dname,sum(sal) from emp inner join dept
+on emp.deptno = dept.deptno
+group by dname
+having sum(sal) > 13000;
+
+
+
+SQL> select ename,count(*)
+  2  from emp
+  3  group by ename;
+
+this show the duplicate records;
+
+SQL> select empno,ename,sal,job,deptno,count(*)
+  2  from emp
+  3  group by empno,ename,sal,job,deptno;
+
+it shows the empno,ename,sal,job,deptno from emp
+
+
+
+
+SQL> select empno,ename,deptno,count(*)
+  2  from emp
+  3  group by empno,ename,deptno
+  4  order by ename;
+
+it show the empno,ename,deptno from emp table order by ename;
+
+
+SQL> select ename,deptno,count(*)
+  2  from emp
+  3  group by ename,deptno
+  4  order by count(*) desc;
+it shows the duplicate name in every dept
+
+
+> select empno,ename,sal,count(*)
+  2  from emp
+  3  group by empno,ename,sal
+  4  ;
+it shows the duplicate name in one table;
+
+
+
+> select first_name,last_name,d_id
+  2  from empp,department
+  3  group by first_name,last_name,d_id
+  4  order by count(*) desc;
+
+it show the duplicate name in every department in two table;
+
+
+it show the ename duplicate in one table based on having as well shows that whether a emp is above than 1 or not.
+SQL> select ename,count(*)
+  2  from emp
+  3  group by ename
+  4  having count(*) > 1;
+
+
+
+SQL> select last_name,count(*)
+  2  from empp
+  3  group by last_name
+  4  having count(*) > 1;
+
+it shows no row seleted, because there is no duplicate last_name in the table;
+
+
+
+i
+
+
+
+it shows the duplicate name in every department;
+
+L> select ename,sal,deptno,count(*)
+  2  from emp
+  3  group by ename,sal,deptno
+  4  order by count(*) desc;
+
+
+it shows the duplicate name in every dept that greater than one by having cluse
+SQL> select ename,deptno,count(*)
+  2  from emp
+  3  group by ename,deptno
+  4  having count(*) > 1;
+
+
+
+
+
+group by with where cluse
+SQL> select ename,count(*)
+  2  from emp
+  3  where ename LIKE 'K%'
+  4  group by ename;
+
+
+
+SQL> select ename,sal,dept.dname,count(*)
+  2  from emp inner join dept
+  3  on emp.deptno = dept.deptno
+  4   where sal > 2000
+  5  group by ename,sal,dname;
+it shows the greater than 2000 sal between departments;
+
+
+
+it shows the duplicate sal between salaries in emp table
+SQL> select sal,count(*)
+  2  from emp
+  3  where sal > 2000
+  4  group by sal
+  5  order by count(*) desc;
+
+
+what the group by is doing?
+detail the data,
+the detail give from the table.
+while the detail given, the result call, summarize the data.
+and summarize the data use for analysis, cuz the detail get summarize then, 
+summarize data easty for analysis.
+
+how to show that in which year how many emp joined?
+it possible by to-char function
