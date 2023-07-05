@@ -1,0 +1,101 @@
+Data function:
+
+Extract: The extract() function extract a part from a given date.
+
+It show's the year of emp joined.
+select extract(year from hiredate0 from emp;
+--------------------
+it show's the month of emp joining.
+select extract(month from hiredate) from emp;
+------------------------
+
+It show's the ename and year of emp joining.
+select ename,extract(year from hiredate) from emp;
+-----------------------
+
+it show's the hiredate, and month of emp joining.
+select hiredate,extract(month from hiredate) from emp;
+---------------------------
+
+it show's ename,job,sal whose joined in the second month.
+select ename,sal,job from emp where extract(month from hiredate)=2;
+----------------------------------
+
+it show's ename,job,hiredate and year of emp joining.
+select ename,sal,hiredate from emp where extract(month from hiredate) = 2;
+----------------------------
+
+It show's the day of emp joining.
+select extract(day from hiredate) from emp;
+------------------
+
+it show's ename,hiredate from day of emp joining.
+select ename,hiredate,extract(day from hiredate) from emp;
+--------------------------
+
+String to date:
+1. to_date('01-Feb-2022');
+it shows the date.
+
+E.G: it show's the last-day of a month.
+select last_day(to_date('01-feb-2022')) from dual;
+-----------------------------------------------
+it show's the current_date.
+select current_date from dual;
+-------------------------------------------------------
+
+It show's the last_hiredate and hiredate itself.
+select last_day(hiredate),hiredate from emp;
+----------------------------------------------------------
+
+it show's the last_hiredate and hiredate,ename .
+select last_day(hiredate),hiredate,ename from emp;
+-----------------------------------------------------
+
+It show's the current time with its all.
+select current_timestamp from dual;
+--------------------------------------------------
+
+To_char: Converts a date, time, timestamp(date and time) or number expression to a character string according to the specified format string.
+
+E.G:select to_char(current_date) from emp;
+---------------------------------------------------
+
+To_date: accepts that an argument of a character data type and converts this value to a DATETIME value.
+
+E.G: select last_day(to_date('01-jan-2022')) from dual;
+------------------------------------------
+
+Next_day: It show's the next of the month.
+E.G: select next_day(sysdate,'Wednesday') from dual;
+
+E.G: next_day with to_date.
+select next_day(to_date('12-oct-2022'),'Wednesday') from dual;
+-----------------------------------------------------
+
+add_months: it add's several-months to date.
+select add_months(hiredate,3)hiredate from emp;
+------------------------------------------
+
+Months_between: It shows' the date between two months.
+E.G: it show months_between hiredate,sysdate.
+select months_between(hiredate,sysdate) hiredate, sysdate from emp;
+
+E.G:if we find it based on experiance.
+selec ename,hiredate,months_between(sysdate,hiredate) as experiance from emp;
+
+E.G: if find it based on year experiance.
+select ename,hiredate,months_between(sysdate,hiredate)/12 as year from emp;
+
+E.G: it show's that emp's how many year worked.
+select ename,hiredate,months_between(hiredate,sysdate)12 as year from emp;
+
+E.G it show's that emps' whose near to retired.
+select ename,job,sal,40- months_between(hiredate,sysdate)/12 taqawot from emp.
+
+
+
+
+
+
+
