@@ -1,0 +1,27 @@
+Normalizations:is a database technique that reduce data redundancy and eliminates undesirable charactersitic like insertion, update, and delete anomalies.
+Or, it is the process ot organizing data in database.
+Or, Database normalization is a databsae design principle for organizing data in an organized and consistent way.
+
+.it helps you avoid redundancy and maintain the integrity of the database. it also helps you eliminate undesirable characteristics associated with insertion, deletion, and updating.
+
+Purpose of Normalization: The main purpose of database normalization is to avoid complexities, eliminate duplicate, and organized data in consistent way.
+
+Primary Key: A PK is a single column values used to identify a database record uniquely.
+
+Foreign Key:FK is a key that relates to the primary key in another table.
+
+Composite Key A CK is just like a Primary key, but instead ot having a column, it has multiple columns.
+
+What 1NF 2NF and 3NF?
+
+1NF:
+.Eliminate repeating groups in individual tables.
+.Create a separate table for each set of related data.
+.There mus be a primary key for identification.
+
+2NF:The 1NF only eliminates repeating groups, not redundancy. that's why there is 2NF.
+.Relates these tables with foreign key.
+.create separate table for set of values that apply to multiple record.
+
+3NF:When a table is in 2NF, it eliminates repeating groups and redundancy, but it does not eliminate transivie partial dependency.
+.Have no transitive partial dependency.
