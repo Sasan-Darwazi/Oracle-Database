@@ -1,0 +1,5 @@
+Transaction: Transaction access data using read write operations.
+Or, a database transaction is a sequence of muitiple operations performed on a database, and all the operation served a single logical unit.
+In order to maintain consistency in a database, before and after the trancsaction, acid properties are followed.
+ACID:
+Automactiy, Consistency, Isolation,Durability.
