@@ -1,0 +1,110 @@
+> --materialized view
+SQL> --syntax
+SQL> --create materialized view your view_name as
+SQL> --select statement
+
+--ways of creating materialized view
+
+e.g:
+L> create materialized view view_name
+  2  as
+  3  select deptno,sum(sal) from emp
+  4  group by deptno;
+
+Materialized view created.
+
+SQL> select * from view_name;
+
+    DEPTNO   SUM(SAL)
+---------- ----------
+        30      16250
+        20      14075
+        10      17300
+
+
+2.E.G:SQL> create materialized view view_name
+  2  as
+  3  select ename,job,sal,dname from emp inner join dept
+  4  on emp.deptno = dept.deptno
+  5  where dept.dname = 'RESEARCH';
+
+Materialized view created.
+
+SQL> select * from view_name;
+
+ENAME      JOB              SAL DNAME
+---------- --------- ---------- --------------
+JONES      MANAGER         3975 RESEARCH
+SCOTT      ANALYST         4000 RESEARCH
+FORD       ANALYST         4000 RESEARCH
+ADAMS      CLERK           2100 RESEARCH
+
+
+
+3.E.G:SQL> drop materialized view view_name;
+
+Materialized view dropped.
+
+SQL> create materialized view view_name
+  2  as
+  3  select e1.ename,e1.sal,e1.job from emp e1,emp e2 where e1.sal = e2.sal and e2.sal > 5000;
+
+Materialized view created.
+
+SQL> select * from view_name;
+
+ENAME             SAL JOB
+---------- ---------- ---------
+KING             6000 PRESIDENT
+
+
+
+4.E.G:this example will be shown which emp joined in which year.
+SQL> create materialized view view_name
+  2  as
+  3  select to_char(hiredate,'yyyy')as year,count(*)
+  4  from emp
+  5  group by to_char(hiredate,'yyyy');
+
+Materialized view created.
+
+SQL> select * from view_name;
+
+YEAR   COUNT(*)
+---- ----------
+1987          2
+1982          1
+2022          1
+1981         10
+
+
+5.E.G:SQL> create materialized view view_name
+  2  as
+  3  select ename,to_char(hiredate,'yyyy')as year,count(*) from emp
+  4  group by ename,to_char(hiredate,'yyyy');
+
+Materialized view created.
+
+SQL> select * from view_name;
+
+ENAME      YEAR   COUNT(*)
+---------- ---- ----------
+ALLEN      1981          1
+MARTIN     1981          1
+CLARK      1981          1
+ADAMS      1987          1
+FORD       1981          1
+WARD       1981          1
+BLAKE      1981          1
+JAMES      1981          1
+TURNER     1981          1
+MILLER     1982          1
+JONES      1981          1
+
+ENAME      YEAR   COUNT(*)
+---------- ---- ----------
+SCOTT      1987          1
+Sasan      2022          1
+KING       1981          1
+
+14 rows selected.
