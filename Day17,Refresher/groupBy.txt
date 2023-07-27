@@ -1,0 +1,133 @@
+what the group by is doing?
+detail the data,
+the detail is take from the table.
+while the detail taken, the result called, summarize the data.
+and summarize the data use for analysis, cuz the detail got summarized then, summarize data easty for analysis.
+
+The purpose of G/P is grouping the data.
+
+
+E.G:how to get sum(sal) based on the Department Numbers
+select deptno,sum(sal) from emp
+group by deptno;
+
+------------------------------------------------------------------
+2.E:G:Getting the sum(sal) based on the dept-No's of course specific dept numbers.
+sselect deptno,sum(sal) from emp
+  2  group by deptno
+  3  having deptno = 20;
+
+    DEPTNO   SUM(SAL)
+---------- ----------
+        20      14075
+
+----------------------------------------------------------------------
+3.E.G:Getting the dname sum(sal) based on specific department-Name.
+select dname,sum(sal) from emp inner join dept on emp.deptno = dept.deptno
+  2  group by dname
+  3  having dname IN('ACCOUNTING','SALES');
+
+DNAME            SUM(SAL)
+-------------- ----------
+ACCOUNTING          17300
+SALES               16250
+
+----------------------------------------------------------------------
+
+4.E.G:how to show how many emp's working in which table?
+SQL> select job,count(*) from emp
+  2  group by job;
+
+JOB         COUNT(*)
+--------- ----------
+SALESMAN           4
+CLERK              3
+PRESIDENT          1
+MANAGER            4
+ANALYST            2
+----------------------------------------------------------------------
+
+5.E.G:this query will have shown those emp's whom are getting the same salary.
+
+
+SQL> select sal,count(*) from emp
+  2  group by sal;
+
+       SAL   COUNT(*)
+---------- ----------
+      4000          3
+      5000          1
+      2600          1
+      3850          1
+      2250          2
+      3975          1
+      2300          2
+      3000          1
+      6000          1
+      2100          1
+
+----------------------------------------------------------------------
+
+
+6.E.G:this query will have shown that which emp's have joined in which year?
+ select to_char(hiredate,'yyyy') as year,count(*) from emp
+  2  group by to_char(hiredate,'yyyy');
+
+YEAR   COUNT(*)
+---- ----------
+1987          2
+1982          1
+2022          1
+1981         10
+
+-------------------------------------------------------------------
+
+7.E.G:With more details same as above example.
+ select ename,job,to_char(hiredate,'yyyy')as year,count(*) from emp
+  2  group by ename,job,to_char(hiredate,'yyyy');
+
+ENAME      JOB       YEAR   COUNT(*)
+---------- --------- ---- ----------
+WARD       SALESMAN  1981          1
+TURNER     SALESMAN  1981          1
+Sasan      MANAGER   2022          1
+MARTIN     SALESMAN  1981          1
+BLAKE      MANAGER   1981          1
+JAMES      CLERK     1981          1
+FORD       ANALYST   1981          1
+ALLEN      SALESMAN  1981          1
+SCOTT      ANALYST   1987          1
+KING       PRESIDENT 1981          1
+CLARK      MANAGER   1981          1
+
+ENAME      JOB       YEAR   COUNT(*)
+---------- --------- ---- ----------
+JONES      MANAGER   1981          1
+ADAMS      CLERK     1987          1
+MILLER     CLERK     1982          1
+
+14 rows selected.
+
+---------------------------------------------------------------------
+
+8.E.G:these two quries will have shown the department-Name sum(sal) whose getting bigger or lower next to each other.
+ select dname,sum(sal) from emp inner join dept
+  2  on emp.deptno = dept.deptno
+  3  group by dname
+  4  having sum(sal) > 14000;
+
+DNAME            SUM(SAL)
+-------------- ----------
+ACCOUNTING          17300
+RESEARCH            14075
+SALES               16250
+
+SQL> select dname,sum(sal) from emp inner join dept
+  2  on emp.deptno = dept.deptno
+  3  group by dname
+  4  having sum(sal) > 16000;
+
+DNAME            SUM(SAL)
+-------------- ----------
+ACCOUNTING          17300
+SALES               16250
