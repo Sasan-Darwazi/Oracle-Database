@@ -1,0 +1,26 @@
+2: Corelated sub-query
+----------------------------------------------------------------
+In C-L-S/Q, First outer query is executed then inner query will execute.
+it means, C-L-S/Q  is apposite of Non-C-L-S/Q.
+
+Note: Inner query is always depends on the result of outer query.
+------------------------------------------------------
+n-1 is 1-1 = 0;
+or 2-1 = 1;
+Syntax:
+select  * from tn alias name1 where n-1 = (select count(cn) from tn alias name2 where alias name2 . cn </> alias name1 . cn;
+-------------------------------------------------------
+
+E.G: hot to show highest salary.
+select * from emp e1 where 0 =(select count(sal) from emp e2 where e2.sal > e1.sal);
+--------------------------------------------------------------
+
+E.G: How to show the lowest salary.
+select * from  emp e1 where 0 = (select count(sal) from emp e2 where e2.sal < e1.sal);
+----------------------------------------------------------
+
+E.G: How to show the second highest salary.
+select * from emp e1 where 2 = (select count(sal) from emp e2 where e2.sal > e1.sal);
+--------------------------------------
+
+if you want to show the lowest sal use < and if you want highest sal use >.
