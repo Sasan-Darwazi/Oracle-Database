@@ -1,0 +1,77 @@
+what are the subqueries?
+Query?
+.Collection of keywords and expression that is run to give a result.
+.as well Function inside other function
+
+Subquery?
+.A query inside another query
+.Result of one query used as a input to another query
+
+
+As per the execution of sub quries are classified in two ways.
+
+1: non-corelated sub-query
+--------------------------------------------------------------
+in Non-C-S/Q, First inner query executed then outer query will execute.
+Note: Outer query is always depends on the result of inner query.
+
+E.G: how to show the highest salary.
+select * from emp where sal = -----outer query will execute second.
+(select max(sal) from emp); ---inner query will execute first.
+
+----------------------------------------------------------------
+
+E.G: How to find the second highest salary.
+select * from emp where sal =
+(select max(sal) from emp where sal < (select max(sal) from emp));
+
+in this example where have one inner query and two outer query.
+-----------------------------------------------------------------
+
+E.G: How to see the fourth highest salary.
+select * from emp where sal = (select max(sal) from emp where sal <
+(select max(sal) from emp where sal < (select max(sal) from emp where sal < (select max(sal) from emp where sal < (select max(sal) from emp))));
+------------------------------------------------------------------------
+
+E.G: How to find the third highest salary.
+select * from emp where sal = (select max(sal) from emp where sal <
+select max(sal) from emp where sal < (select max(sal) from emp)));
+---------------------------------------------------------------------
+
+E.G: How to show the lowes sal.
+select *  from emp where sal = (select min(sal) from emp);
+---------------------------
+E.G: How to show the second lowest sal.
+select * from emp where sal = (select min(sal) from emp where sal < (select min(sal) from emp));
+
+------------------------------------------------------------------
+
+How to find the sal > avg sal?
+
+select * from emp where sal > (select avg(sal) from emp):
+------------------------------------------------------------------
+
+
+2.E.G:how to show ename,sal with the max(sal);
+select ename,sal,(select max(sal) from emp) as maxSal from em;
+
+----------------------------------------------------------------------
+
+3.E.G:how to the avg(Sal)?
+select empno,sal,(select avg(sal) from emp) as avgSal from em;
+
+----------------------------------------------------------------------
+
+4.E.G:another example with sub-Q along with Partition.
+select empno,sal, avg(sal) as avgSal from emp
+group by empno,sal
+order by 1,2;
+
+
+5.E.G:how to show the emop,ename from where sal > 5000;
+select empno,ename from emp where empno IN (select empno from emp where sal > 5000);
+
+------------------------------------------------------------------------
+
+6.E.G:how to show the empno,ename from emp where sal = 5000);
+select empno,ename from emp where empno in(select empno from emp where sal = 5000);
