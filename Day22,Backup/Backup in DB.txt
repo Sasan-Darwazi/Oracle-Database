@@ -1,0 +1,132 @@
+SQL Server backups, in itself, is a vast subject; so vast, there are multiple books written about them. In this article, however, we are going to focus on the types of backups that are available to us, and understand how to pick what we need, and what aspects we base that decision on. This understanding would, in turn, help us decide our backup-and-restore strategy.
+
+Following are the most common types of backups available in SQL Server:
+
+Full
+Differential
+Transaction log
+Tail Log backup
+i----------------------------------------------------------------------
+
+Full backups:
+
+A full backup, as the name implies, backs up everything. It is the foundation of any kind of backup. This is a complete copy, which stores all the objects of the database: Tables, procedures, functions, views, indexes etc. Having a full backup, you will be able to easily restore a database in exactly the same form as it was at the time of the backup.
+
+A full backup creates a complete backup of the database as well as part of the transaction log, so the database can be recovered. This allows for the simplest form of database restoration, since all of the contents are contained in one single backup.
+
+How to create full database backup using T-SQL
+
+The BACKUP DATABASE is the command used to create a full database backup. It requires at least two input parameters: the database name and the backup device.
+
+Following is the example for a full database backup to be stored in a device:
+
+BACKUP DATABASE [SQLShackDemoATC]
+To DISK='f:\PowerSQL\SQLShackDemoATC.BAK'
+WITH FORMAT,
+      MEDIANAME = 'Native_SQLServerBackup',
+      NAME = 'Full-SQLShackDemoATC backup';
+
+----------------------------------------------------------------------
+
+
+A full backup creates a complete backup of the database as well as part of the transaction log, so the database can be recovered. This allows for the simplest form of database restoration, since all of the contents are contained in one single backup.
+
+A full backup must be done at least once before any of the other types of backups can be run—this is the foundation for every other kind of backup.
+
+How to create full database backup using T-SQL
+
+The BACKUP DATABASE is the command used to create a full database backup. It requires at least two input parameters: the database name and the backup device.
+
+Following is the example for a full database backup to be stored in a device:
+
+BACKUP DATABASE [SQLShackDemoATC]
+To DISK='f:\PowerSQL\SQLShackDemoATC.BAK'
+WITH FORMAT,
+      MEDIANAME = 'Native_SQLServerBackup',
+      NAME = 'Full-SQLShackDemoATC backup';
+Full Database Backup to Multiple files
+Sometimes in some instances, we’re limited by the amount of space we have. What if we wanted to backup an entire database that is huge? Or what if we have to copy the backup files over the network? It might be a good idea in these cases to split the backup into smaller chunks—each being a separate file.
+
+BACKUP DATABASE SQLShackDemoATC TO 
+DISK = 'f:\PowerSQL\SQLShackDemoATC_1.BAK', 
+DISK = 'f:\PowerSQL\SQLShackDemoATC_2.BAK', 
+DISK = 'f:\PowerSQL\SQLShackDemoATC_3.BAK', 
+DISK = 'f:\PowerSQL\SQLShackDemoATC_4.BAK' 
+WITH INIT, NAME = 'FULL SQLShackDemoATC backup', STATS = 5
+If you’d like to create a mirror copy of the backup file:
+
+BACKUP DATABASE ProdSQLShackDemo 
+TO DISK = 'F:\PowerSQL\ProdSQLShackDemo_1.BAK'
+MIRROR TO DISK =  'F:\PowerSQL\ProdSQLShackDemo_2.BAK'
+WITH FORMAT
+You can, in fact, have up to three mirror copies:
+
+BACKUP DATABASE ProdSQLShackDemo 
+TO DISK = 'F:\PowerSQL\ProdSQLShackDemo_1.BAK'
+MIRROR TO DISK =  'F:\PowerSQL\ProdSQLShackDemo_2.BAK'
+MIRROR TO DISK =  'F:\PowerSQL\ProdSQLShackDemo_3.BAK'
+MIRROR TO DISK =  'F:\PowerSQL\ProdSQLShackDemo_4.BAK'
+WITH FORMAT
+GO
+--------------------------------------------------------------------------------------------------------------------------------------------
+Differential Backups
+A differential database backup is the superset of the last full backup and contains all changes that have been made since the last full backup. So, if there are very few transactions that have happened recently, a differential backup might be small in size, but if you have made a large number of transactions, the differential backup could be very large in size. 
+
+As a differential backup doesn’t back up everything, the backup usually runs quicker than a full backup. A differential database backup captures the state of the changed extents at the time that backup was created. If you create a series of differential backups, a frequently-updated database is likely to contain different data in each differential. As the differential backups increase in size, restoring a differential backup can significantly increase the time that is required to restore a database. Therefore, it is recommended to take a new full backup, at set intervals, to establish a new differential base for the data.
+
+
+
+
+How to create Differential database backup using T-SQL
+
+The BACKUP DATABASE command is used with the differential clause to create the differential database backup. It requires three parameters:
+
+Database name
+Backup device
+The DIFFERENTIAL clause
+For example,
+
+BACKUP DATABASE [SQLShackDemoATC]
+   To DISK='f:\PowerSQL\SQLShackDemoATC_Diff.BAK'
+   WITH DIFFERENTIAL,
+    MEDIANAME = 'Native_SQLServerDiffBackup',
+    NAME = 'Diff-SQLShackDemoATC backup';
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Transaction Log Backup
+The log backup, as its name implies, backs up the transaction logs. This backup type is possible only with full or bulk-logged recovery models. A transaction log file stores a series of the logs that provide the history of every modification of data, in a database. A transaction log backup contains all log records that have not been included in the last transaction log backup.
+
+It allows the database to be recovered to a specific point in time. This means that the transaction log backups are incremental and differential backups are cumulative in nature. If you want to restore the database to a specific point in time, you need restore a full, recent differential, and all the corresponding transaction log records which are necessary to build the database up to that specific point, or to a point very close to the desired point in time, just before the occurrence of the accident that resulted in the data loss. This series of modifications is contained and maintained using LSN (Log Sequence Number) in the log chain. A log backup chain is an unbroken series of logs that contain all the transaction log records necessary to recover a database to a point in time. A log chain always starts with a full database backup and continues until for reason it breaks the chain (for example, changing the recovery model of database to simple, or taking an extra full backup), thus by preventing log backups from being taken on the database until another full (or differential) backup is initiated for that database.
+
+
+A log in a database management system (DBMS) is a record of all the transactions that have occurred within the database. Continue reading.
+
+
+How to create Transactional log backup using T-SQL
+
+The BACKUP LOG command is used to backup the transaction log. It requires the database name, the destination device and the TRANSACTION LOG clause to initiate the transaction log backup.
+
+BACKUP LOG [SQLShackDemoATC]
+   To DISK='f:\PowerSQL\SQLShackDemoATC_Log.trn'
+   WITH
+   MEDIANAME = 'Native_SQLServerLogBackup',
+    NAME = 'Log-SQLShackDemoATC backup';
+GO
+----------------------------------------------------------------------
+
+Tail log backups
+In the event of a failure, when you need the database to get back up and running, and the database is operating in FULL or BULK_LOGGED recovery model, it’s always easy to start the recovery operation and start restoring the backups. But before that, the first action to be taken after the failure is what is called as a tail log backup of the live transaction log.
+
+This is an intermediate step that we need to take before we start the restoration. This process is called tail log backup restoration.
+
+USE master;
+GO
+-- create a tail-log backup
+BACKUP LOG [SQLShackDemoATC]
+TO DISK = 'f:\PowerSQL\SQLShackDemoATCTailLog.log'
+WITH CONTINUE_AFTER_ERROR;
+GO
+The WITH CONTINUE_AFTER_ERROR clause will force SQL Server to store the log file, even though it’s generating an error.
