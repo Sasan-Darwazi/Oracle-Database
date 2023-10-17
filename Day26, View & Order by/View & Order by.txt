@@ -1,0 +1,69 @@
+Views:view is virtual/logical table for the base table.
+Virtual mean, the object doesnt exist physical
+.view will not store data but the select query statement is only stroe.
+.it will create with the help of select statement.
+
+Types of views:
+---------
+1: Simple view
+2: Complex view
+
+1: SV- when we access the required data from single base table.then its called sv.
+. it can support all dml operations.
+. Simple view is also called updatable view.why updatabel, cuz it support all the dml.
+
+
+
+1: Simple view syntax:
+create view v_name
+as
+select * from (where condition);
+
+Ex: create view v1
+as
+select * from emp;
+
+Testing dml in sm:
+insert v1 values(1,'Name',200);
+update v1 set sal = 100 where id = 1;
+delete from v1 where id  = 1;
+
+Replacing view:
+create or replace view view_name
+as
+select deptno,ename,sal,job
+from emp
+group by deptno,ename,sal,job;
+---------------------------------------------------------------------------------------------
+
+
+ORDER BY: clause is used to sort rows either in asc or desc order based on one or more columns or expressions.
+
+SYN:select column-name from table-name where condition
+order by expression, (asc-desc)
+
+E.G:
+select * from emp order by
+sal asc;
+-------------------------
+
+select * from emp order by
+ename asc;
+-------------------------------------
+
+This ex sort the record based on the column number.
+----------------------------
+select * from emp order by 2 asc or desc;
+it the 2 column is ename and it will either asc or desc.
+-------------------------------------------------
+
+This ex will shows the order by its mentioned columns.
+---------------------------sele-
+select ename,job,sal from emp
+order by 3 asc,desc; cuz the columns mentioned above, are three columns.
+----------------------------
+
+ORDER BY with WHERE Clause.
+----------------
+E.G:select * from emp where job = 'SALESMAN' order by ename asc;
+
