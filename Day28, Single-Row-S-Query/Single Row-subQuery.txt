@@ -1,0 +1,54 @@
+1:non-corelated sub-query Types:
+> Simple/Single-row S/Q
+------------------------
+When a sub query returns a single value is called as simple/single row subquery.
+
+
+E.G:   
+        --------------------------
+        SubQuery=Outer+Inner Query
+        --------------------------
+
+E.X: How to find the highest salary, so you can find by the Non-C-S/Q Formual.
+ E.G: select * from emp where sal = (select max(sal) from emp);
+--------------------------------------------------------------------
+
+E.G: how to find ename,sal from accounting dept?
+select ename,sal from emp where deptno = (select deptno from dept where dname = 'ACCOUNTING');
+
+
+E.G: How to find deptno,dname from dept?
+
+select deptno,dname from dept where dname = 'RESEARCH';
+----------------------------------------------
+
+
+E.G: How to find the min,max sal?
+select ename,sal from emp where sal = (selec max(sal) from emp) or sal = (select min(sal) from emp);
+------------------------
+
+
+E.G: How to find the loc of DNAME;
+select loc from dept where deptno = (select deptno from dept where dname = 'SALES');
+
+
+E.G: How to find the loc of a emp?
+select loc from dept where deptno = (select deptno from emp where ename = 'KING');
+
+
+E.G:This query will have shown the emp's whose their salaries greatar than avg(sal).
+ select ename,job,sal from emp where sal > (select avg(sal) from emp);
+
+
+E.G:This query will have shown those emp's that their salaries are less than the max(sal).
+select ename,job,sal from emp where sal <(select max(sal) from emp);
+
+
+E.G:This query will have shown those record that their salaries great than the min(sal).
+select ename,job,sal from emp where sal >(select min(sal) from emp);
+
+
+
+E.G:This query will have shown avg(sal) of one dname.
+select avg(sal) from emp where deptno = (select deptno from dept where dname = 'SALES'));
+
