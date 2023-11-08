@@ -1,0 +1,57 @@
+
+-----------------------------------------------------------------------------
+
+String Functions:
+
+Upper:the Upper clause make the alphabet as a upper words.
+E.G:select upper('king') from dual;
+
+
+Lower:the Lower clause make the alphabet as lower words.
+E.G:select lower('KING');
+
+
+Initcap:it's make big the first letter of a word.
+E.G:select initcap('khan muhamad') from dual;
+
+e.G:
+select initcap(ename),initcap(job) from emp;
+
+
+.length
+E.G:select length(ename) from emp;
+
+.concat
+E.G:select concat('This is ' || ename) from emp;
+
+.lpad: is add a thing from the left side
+E.G:select lpad(ename,10,'#') from emp;
+
+.rpad:is add a thing from the right side.
+E.G:selct rpad(ename,10,'#') from emp;
+
+.rtrim:it remove a thing from the rightf side.
+E.G:select rtrim('oracle','e') from dual;
+
+.ltrim:it add a thing from the left side.
+E.G:select ltrim('oracle,'o') from dual;
+
+.trim
+E.G:select trim(ename,job,sal) from emp;
+
+.translate:it turn a character into number
+E.G:select translate('Americal,'ric',456) from dual;
+
+.replace:it is the similar query to translate;
+E.G:select replace('Sasan','Sas',012) from dual;
+
+.substr
+E.G:select substr(ename,1,4) from emp;
+E.G:select substr('Sasan',0,3) from dual;
+
+.instr:this function bring out the letter of a word and turn it into number.
+E.G:select instr('America','r') from dual;
+
+.reverse:it reverse a word or turn it into vice versa.
+E.G:Select reverse('Sasan Darwazi') from dual;
+
