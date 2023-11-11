@@ -1,0 +1,47 @@
+Math Predifined Functions.a
+select abs(-1) from dual;
+it show the exact number;
+
+>select sin(45) from dual;
+it show sin 45;
+
+>select asin(1) from dual;
+it shows the inverse sing(45) or arc sin.
+
+>select cos(90) from dual;
+it shows the cos90;
+
+> select acos(1) from dual;
+it shows the arc cos from dual;
+
+> select trunc(123.55) from dual;
+it remove the ashari section from a value.
+
+>greatest: select greatest(1,2,3,45) from dual;
+it show the greatest number in a list of values.
+
+> least: select least(1,2,3,4) from dual;
+it show the lowest number in a list of values;
+
+> tan: select tan(10) from dual;
+it select the tanjant of a number.
+
+> power: select power(3,3) from dual;
+it shows the power of a number or it zarb mezana yk adad ra ba tawan aan.
+
+> ceil: select ceil(11.5) from dual;
+this function return the smallest value which greater than or equal to the given number.
+
+> floor: select floor(11.4) from dual;
+this function shows the greatest value which is lowest than or equal than the given number;
+
+> Random: select dbms_random.random from dual;
+this function always generates different arguments.
+e.g:select trunc(dbms_random.random * 10 from dual;
+
+---------------------------------------------------
+
+
+
+
+
