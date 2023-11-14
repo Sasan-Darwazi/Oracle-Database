@@ -1,0 +1,41 @@
+INTERSECT OPT: Combines two select statements and returns only the dataset that is common in both the statements.
+
+E.G:
+select ename,sal from choose
+intersect
+select ename,sal from namenawesi;
+-------------------------------------------------------------------
+
+MINUS OPT: is used to return all rows in the first select statement that are not returned by the second select statement.
+
+E.G:
+select ename,sal from emp choose
+minus
+select ename,sal from namenawesi;
+------------------------------------------------------------------------
+
+Union:it combines data from two table without duplicate rows;
+select ename,sal from namenawesi
+union
+select ename,sal from choose;
+-----------------------------------------------
+
+It shows the max(sal) with its' name.
+E.G:select ename,sal from emp where sal = (select max(sal) from emp);
+----------------------------------------
+
+E.G: It shows the mix,min(sal) from emp with its namees.
+select ename,sal from emp where sal = (select min(sal) from emp)
+union
+select ename,sal from emp where sal = (select max(sal) from emp);
+----------------------------------------------------------------------------
+
+PL - SQL;
+-- Function
+-- Procedure
+-- Package
+-- Trigger
+-- Programing language concept
+-- anonyoums Program
+-- PL SQL Block
+-- De
