@@ -1,0 +1,38 @@
+2:Number Functions: N/F manipulate numeric value and return a numerci value as a result.
+Here, input is always number and ouput is also number.
+And they're...
+1:ABS: shows the exact number;
+E.G:select abs(-450) from dual;
+
+2:ceil: shows the highest number in a value;
+E.G:select ceil(5.9) from dual;
+
+3.floor: shows the lowest number in a values;
+E.G:select floor(5.9) from dual;
+
+4.power: show is bigger number of a arguments;
+E.G:select power(3,3) from dual;
+
+5.mod: the mod() function is used to get the reminder from a division.
+E.G:select mod(5,1) from dual;
+E.G:select mod(5,2) from dual;
+
+6.sqrt:it shows the square of a number;
+E.G:select sqrt(100) from dual;
+
+
+7.trunc:it remove the decimal numbers;
+E.G:select trunc(12.4) from dual;
+
+8.greatest: select greatest(1,2,3,45) from dual;
+it show the greatest number in a list of values.
+
+9. least: select least(1,2,3,4) from dual;
+it show the lowest number in a list of values;
+
+10. tan: select tan(10) from dual;
+it select the tanjant of a number.
+
+11. Random: select dbms_random.random from dual;
+this function always generates different arguments.
+e.g:select trunc(dbms_random.random * 10) from dual;
