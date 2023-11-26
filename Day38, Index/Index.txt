@@ -1,0 +1,87 @@
+/INDEX:
+index is a database object that makes data retrieval faster.
+By using Index, a record can be located fastly.
+Or, index is a Object that  allows you to find specific data in a table faster.
+
+
+Index created on column and that column is called index key.
+Create index index-name On table_name(column)
+
+Types of Index:
+1: BTREE indexes
+2: BITMAP indexes
+
+B-Tree:
+the default creation of index is BITREE Index.
+B-tree indexes are used to avoid large sorting operations.
+For Example:, a SQL query requiring 10000 rows to be presented in sorted order will often use a b-tree indes to avoid the very large sort required to deliver the data to the end uer.
+
+
+While b-tree indexes are great for simple queries, they are not very good for the following situations:
+
+High-cardinality: refers to a databsae that has a large numbers of distinct values such is ID,name, email, address and so on.
+
+
+
+liner Searching: is type of searching that search each value one by one.
+e.x:liner search will search all below values one by one.
+1000
+2000
+3000
+4000
+5000
+6000
+
+
+
+
+
+Note: SET AUTOTRACE ON EXPLAIN: when you execute the query, it will show the output your query as well it will show the execution plan of your query.
+
+E.G:
+create index e1 on emp(sal);
+then execute this command (SET AUTOTRACE ON EXPLAIN).
+then select this query.
+select * from emp where sal = 3000.
+it will execut the output of your query and also it will show the execution plan of your query.
+
+-------------------------------------------------
+
+E.G:select * from emp where sal > 3000;
+--------------------
+E.G: select * from emp where sal <=3000;
+------------------------
+
+NOTE: we have two type of scan in ORACLE, 1:Table scan, which is used without index.
+Ex: select * from emp;
+
+2: Index scan, wich is used after INdex-scan.
+ex:after index creation, select ename from emp where ename = 'KING';
+
+E.G:we can create index on two or more columns.
+create index idx on emp(ename,job,sal);
+select ename,sal,job from emp where ename = 'KING' and sal = 6000;
+
+
+
+
+BitMap index: Oracle bitmap index are very different from standard b-tree indexes. In bimpat structures a two-dimensional array is created with one column for every row in the table being indexed. Each column represents a distinc value within the bitmapped index. this tow dimensional array represent each value within the index multiplied bby the number of rows in the table.
+
+The real benefit of bitmapped indexing occurs when one table includes multiple bitmapped indexes. The creation of multiple bitmapped indexes provides a very powerful method for rapidly answering difficult SQL queries.
+
+For example, assume there is a motor vehicle database with numerous low-cardinality columns such as car_color, car_make, car_model, and car_year. Each column contains less than 100 distinct values by themselves, and a b-tree index would be fairly useless in a database of 20 million vehicles.
+
+
+Low-cardinality columns - Columns with less than 200 distinct values do not have the selectivity required in order to benefit from standard b-tree index structures.s
+
+Difference Between Bi-tree and Bitmapped.
+Internally, a bitmap and b-tree indexes are very different, but functionally the are identical in that they are serve to assist Oracle in retrieving rows faster than a full-table scan.
+
+1:Syntax difference: the bitmap index includes the bimap keyword. the b-tree index does not say bitmap.
+
+2: Cardinality differences: The bimap index is generally for columns with lots of duplicate value (low cardinality), while b-tree indexes are best for high cardinality columns.
+
+3: Internal Strucutre Difference: The internal structures are quite different. A b-tree index has index nodes (Based on the block size).
+
+
+
