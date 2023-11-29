@@ -1,0 +1,3 @@
+Difference Between SQL/PLSQL:SQL is non-procedural language that executes a single query at a time whereas, PL/SQL is a procedural  alnguage and executes blocks of code at once which helps reduce traffic and increases processing speed.
+
+.PL/SQL privudes supports features such as variables, conditional(if-else statement.) and SQL does not provides support for these features.
