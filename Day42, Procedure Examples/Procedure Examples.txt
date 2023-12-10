@@ -1,0 +1,52 @@
+E.G: if you want to sum two or more than two number in procedure;
+In this example we are going to give the numbers by ours and its like scanner.
+
+declare
+a int;de
+b int;
+c int;
+total int;
+begin
+a:=&num1;
+b:=&num2;
+c:=&num3;
+total := a + b * c;
+dbms_output.put_line(total);
+end;
+/
+---------------------------------------
+
+E.G: if you want to * two numbers at dbmsout.
+declare
+a int:=12;
+b int:=20;
+begin
+dbms_output.put_line('Total : ' || a * b);
+end;
+/
+--------------------------------------------------
+
+E.G in this example we declare them datatype;
+declare
+a number(3);
+b number(3);
+begin
+a:=200;
+b:=200;
+dbms_output.put_line(a + b);
+end;
+/
+--------------------------------------
+
+E.G: This ex will show the name,job,sal from emp;
+declare
+e_name varchar2(40);
+e_job varchar2(40);
+e_sal number(7,2);
+begin
+select ename,job,sal into e_name,e_job,e_sal from emp where empno = 1;
+dbms_output.put_line('Emp Name = : ' || e_name);
+dbms_output.put_line('Emp job = : ' || e_job);
+dbms_output.put_line('Emp Sal = : ' || e_sal);
+end;
+/
