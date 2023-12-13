@@ -1,0 +1,59 @@
+Stored Procedure:
+a S-P is also a Names PL-SQL block that accept some input in the form of parameters and performs some task and may or may not returns a value.z
+
+Procedures are created to perform one or more dml operations over database.
+
+Also A stored Procedure is a self-contained subprogram that is meant to do some specific tasks.
+Procedure stored in the database as a database object.
+and does not reutrn any value.
+
+SYNTAX: create [or replace] procedure pro-name (para1, para2...)
+is
+declare statement
+Begin
+Exuctable statements
+
+ procedure name;
+
+/
+
+Parameter are three types;
+Paramter is used to pass values.
+Bydefault parameter is IN Parameter.
+IN ---- Recieve value
+OUT ----- Send value
+IN OUT ------ Send & Recieve value
+
+
+E.G: This ex will show the name,job,sal from emp;
+declare
+e_name varchar2(40);
+e_job varchar2(40);
+e_sal number(7,2);
+begin
+select ename,job,sal into e_name,e_job,e_sal from emp where empno = 1;
+dbms_output.put_line('Emp Name = : ' || e_name);
+dbms_output.put_line('Emp job = : ' || e_job);
+dbms_output.put_line('Emp Sal = : ' || e_sal);
+end;
+/
+-----------------------------------------
+
+E.G:This ex will show the ename,job,sal like scanner, it mean the user should give the empno;
+
+declare
+e_name varchar2(40);
+e_job varchar2(40);
+e_no number(5);
+begin
+e_no:= &empno;
+select ename,job into e_name,e_job from emp where empno = e_no;
+dbms_output.put_line('Emp Name = : '|| e_name);
+dbms_output.put_line('Emp job = : '|| e_job);
+end;
+/
+
+Note: if you want apply the created procedures another time, just enter 
+the (/) and empno which you have given before.
+E.G:/
+1;
