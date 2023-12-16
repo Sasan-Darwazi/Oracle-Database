@@ -1,0 +1,31 @@
+IF/elseif/else.
+E.G: This is a true/false example.
+declare
+a int:=1;
+begin
+if a = 1 then
+dbms_output.put_line('The number is 1');
+elsif a = 2 then
+dbms_output.put_line('The number is 2');
+elsif a = 3 then
+dbms_output.put_line('The number is 3');
+else
+dbms_output.put_line('The unknown number');
+end if;
+end;
+/
+-------------------------------------------------
+
+E.G: Another example with varchar type.
+declare
+name varchar2(40):= 'Sasan';
+begin
+if name = 'Ahmad' then
+dbms_output.put_line('Correct Ahmad');
+elsif name = 'Sasan' then
+dbms_output.put_line('Correct Sasan');
+else
+dbms_output.put_line('Unknown name');
+end if;
+end;
+/

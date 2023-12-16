@@ -1,0 +1,58 @@
+Stored Procedure:
+a S-P is also a Names PL-SQL block that accept some input in the form of parameters and performs some task and may or may not returns a value.z
+
+Procedures are created to perform one or more dml operations over database.
+
+Also A stored Procedure is a self-contained subprogram that is meant to do some specific tasks.
+Procedure stored in the database as a database object.
+and does not reutrn any value.
+
+SYNTAX: create [or replace] procedure pro-name (para1, para2...)
+is
+declare statement
+Begin
+Exuctable statements
+
+ procedure name;
+
+/
+
+Parameter are three types;
+Paramter is used to pass values.
+Bydefault parameter is IN Parameter.
+IN ---- Recieve value
+OUT ----- Send value
+IN OUT ------ Send & Recieve value
+
+Program: is a set or collection of procedures.
+
+E.G: simple procedure:
+---------------------
+create or replace procedure pro_name
+as
+begin
+dbms_output.put_line('Hello Programming');
+end;
+/
+---------------------------------------------
+
+E.G:non-parameter ex.
+Create OR REPLACE PROCEDURE Namme IS
+var_name varchar2(40) :='Sasan';
+var_lname varchar2(40) :='Darwazi';
+BEGIN
+DBMS_OUTPUT.PUT_LINE('THIS IS'||var_name|| 'And Last Name'|| var_lname);
+END NAMME;
+/
+
+NOTCE: There are two way out of to execute procedure;
+Frist on your server.
+SET SERVEROUTPUT ON;
+1: EXECUTE Namme;
+2: EXEC Namme;
+
+or if you want to execute another times...
+BEGIN
+NAMME;
+END;
+/
