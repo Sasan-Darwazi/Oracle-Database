@@ -1,0 +1,65 @@
+Group BY:we can used the group rows bases on one or more column or expression: like we can group the record based on deptno,job,ename or year of joining.
+
+what the group by is doing?
+detail the data,
+the detail is taken from the table.
+while the detail taken, the result called, summarize the data.
+and summarize the data use for analysis, cuz the detail got summarized then, summarized data easy for analysis.
+
+The purpose of G/P is grouping the data.
+
+
+E.G: if you want to show the sum(sal) based on deptno?
+select deptno,sum(sal) from emp
+group by deptno;
+
+
+E.G:It will shows sum(sal) based on dname?
+select dname,sum(sal) from dept inner join emp
+  2  on emp.deptno = dept.deptno
+  3  group by dname;
+
+
+E.G:It shows the record sum(sal) based on dname only two dept?
+ select dname,sum(sal) from dept
+  2  inner join emp
+  3  on emp.deptno = dept.deptno
+  4  where dname IN('ACCOUNTING','SALES')
+  5  group by dname;
+
+
+
+E.G: if you want to show how many emp is working in which table?
+select job,count(*) from emp
+group by job
+order by job asc;
+
+
+E.G:it shows the job-name group by job;
+select job from emp
+group by job;
+
+
+E.G:it shows the who get the same salary group by sal.
+select sal,count(*) from emp gorup b
+
+E.G: if you want to show which emp joined in which year?
+by to_char Funtion.
+
+select to_char(hiredate,'yyyy') as year,count(*)
+from emp
+group by to_char(hiredate,'yyyy');
+
+To-Char: Converts a number or date to a string value.
+.Return varchar2 data type.
+.Accepts many different number or date data types.
+
+Syntax: to_char(input_value,[format_mask]);
+
+E.G: select to_char(12345.68,'99999.9') from dual;
+
+E.G: select to_char(12345,'000000000') from dual;
+
+E.G: select to_char(sysdate,'yyyy-MM-DD') from dual;
+
+E.G: select to_char(sysdate,'Month') from dual;
