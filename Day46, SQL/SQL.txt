@@ -1,0 +1,45 @@
+SQL: is stand for structured query language.
+
+This database language is mainly designed for maintaining the data in relational database managment systesms.
+
+
+.SQL is standard language for accessing and manipulating database.
+
+Database: A database is an organized collection of structured information, data, which typically stored electronically in computer system.
+
+
+Types Of SQL Commands.
+DDL (Data Defination Language):Used to change the structure of the table like creating the table, altering the table, & Deleting the Table. Create, Alter, Drop, Truncate.
+
+Alter: Allows you to add, modify and delete,rename,constraint columns of an existing table.
+1-E.G:alter table table-name add column-name datatype; = Single-column
+
+2-E.G: alter table name add (address varchar2(40),phone number(10)); = Multiple-Column.
+
+3-E.G:This is for modifying the table datatype ranges.
+alter table name modify name varchar2(40);
+
+4-E.G:for deleting the column: alter table name drop column phone;
+
+5-E.G: Renaming the column: alter table name rename column column-name to new-column-name = alter table name rename column salary to wage.
+
+
+6-E.G: Renaming the table-name: alter table table-name rename to new-name. = alter table name rename to location;
+
+7-E.G:How to add constraint:alter table name add constraint constraint-name unique (column-name) = alter table ID add constraint restrict unique (name);
+
+8-E.G:How to add foreign key constraint?:
+Syntact: alter table name add constraint restrict foreign key (foreign-key-column) references (Main-table column-name) (references column-name).
+
+alter table name add constraint restrict foreign key (Eid) references name(ID);
+
+
+9-E.G:How to drop a constraint:
+Syntax: alter table table-name drop constraint cons-name;
+
+Drop:is used to drop an existing table in database. this command deletes both the strucure & Records Stored in table.
+E.G: drop table table-name
+
+Truncate:Is used to remove all rows (Complete data) from a table. it is similar to the DELETE with no WHERE clause.
+
+E.G: Truncate table person;
