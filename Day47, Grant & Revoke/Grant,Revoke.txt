@@ -1,0 +1,26 @@
+Grant:
+.First connect to system user;
+then,
+create user name identified by pwd;
+
+--When you want to give priviledge to name user, then connect to system user again.
+
+--grant connect to name;
+-- grant select on   emp  to   name; this is for give priviledge to a tabel.
+                   t_name    user_name
+--grant delete on emp to name;
+--grant update on emp to name;
+--grant truncate on emp to name;
+
+--grant resource to scott;
+
+select * from system.emp;
+
+those above example are give individual priviledge to the user.
+eg: grant all on emp to name;
+
+Revoke:
+revoke select on system.emp from name;
+e.G: revoke insert-update,delete on system.emp from name;
+e.G: revoke all on system.emp from name;
+e.G: revoke connect from name;
