@@ -1,0 +1,25 @@
+My SQL Datatypes:
+String Data Types:
+Char(size): Fixed length string which can contain letters, numbers and special characters. the size parameter sets tha maximum string length, from 0 - 255 with a default of 1.
+
+Varchar(size): Variable length string similar to char(), but with a maximum string length range from 0  to 65535.
+
+Binary(size): similar to char() but stores binary bytes strings.
+
+Varbinary(size): similar to charchar() but for binary byte string.
+
+Tinyblob: holds binary objects (Blob) with a max length of 255 bytes.
+
+Tinytext: Holds a string with a maximum length of 255 character. Use varchar() instead, as it's fetched much faster.
+
+Text(size):Hold a string with a maximum length of 65535 bytes. again, better to use varchar().
+
+BLOB(size): Holds binary large object (BLOBS) with a max length of 65535 bytes.
+
+MediumText: holds a string with a maximum length of 16.777,215 bytes.
+
+mediumblob: hods binary large object with a max length of 16,777,215.
+
+longtext: holds a string with a maximum length of 4,294,967,295.
+
+LongBlob: holds a binary larget Object with a max length of 4,294,967,295 bytes.
