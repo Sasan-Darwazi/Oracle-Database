@@ -1,0 +1,75 @@
+BIT(size) A bit-value type with a default of 1. The allowed number of bits in a 
+value is set via the size parameter, which can hold values from 1 to 64.
+
+
+TINYINT(size)
+A very small integer with a signed range of -128 to 127, and an 
+unsigned range of 0 to 255. Here, the size parameter specifies the 
+maximum allowed display width, which is 255.
+
+
+
+BOOL Essentially a quick way of setting the column to TINYINT with a size of 
+1. 0 is considered false, whilst 1 is considered true.
+
+
+BOOLEAN Same as BOOL.
+
+
+
+SMALLINT(size)
+A small integer with a signed range of -32768 to 32767, and an 
+unsigned range from 0 to 65535. Here, the size parameter specifies 
+the maximum allowed display width, which is 255.
+
+
+
+
+Data Type Description
+MEDIUMINT(size)
+A medium integer with a signed range of -8388608 to 8388607, 
+and an unsigned range from 0 to 16777215. Here, the size parameter 
+specifies the maximum allowed display width, which is 255.
+
+
+
+INT(size)
+A medium integer with a signed range of -2147483648 to 
+2147483647, and an unsigned range from 0 to 4294967295. Here, the 
+size parameter specifies the maximum allowed display width, which is 
+255.
+
+
+
+INTEGER(size) Same as INT.
+BIGINT(size)
+A medium integer with a signed range of -9223372036854775808 
+to 9223372036854775807, and an unsigned range from 0 to 
+18446744073709551615. Here, the size parameter specifies the 
+maximum allowed display width, which is 255.
+
+
+
+FLOAT(p)
+A floating point number value. If the precision (p) parameter is between 
+0 to 24, then the data type is set to FLOAT(), whilst if its from 25 to 53, 
+the data type is set to DOUBLE(). This behaviour is to make the storage 
+of values more efficient.
+DOUBLE(size, d)
+A floating point number value where the total digits are set by the size 
+parameter, and the number of digits after the decimal point is set by 
+the d parameter.
+
+
+
+DECIMAL(size, d)
+An exact fixed point number where the total number of digits is set by 
+the size parameters, and the total number of digits after the decimal 
+point is set by the d parameter.
+For size, the maximum number is 65 and the default is 10, whilst for d, 
+the maximum number is 30 and the default is 10.
+
+
+
+
+DEC(size, d) Same as DECIMAL.
