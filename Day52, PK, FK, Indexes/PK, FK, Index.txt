@@ -1,0 +1,137 @@
+
+Wildcard Characters
+
+In SQL, Wildcards are special characters used with the LIKE and NOT LIKE keywords which allow 
+us to search data with sophisticated patterns much more efficiently
+
+
+
+%
+Equates to zero or more characters.
+Example 1: Find all users with surnames ending in ‘son’.
+SELECT * FROM users
+WHERE surname LIKE '%son';
+Example 2: Find all users living in cities containing the pattern ‘che’
+SELECT * FROM users
+WHERE city LIKE '%che%';
+
+
+_
+
+Equates to any single character.
+Example: Find all users living in cities beginning with any 3 characters, followed 
+by ‘chester’.
+SELECT * FROM users
+WHERE city LIKE '___chester';
+
+
+
+[charlist]
+Equates to any single character in the list.
+Example 1: Find all users with first names beginning with J, H or M.
+SELECT * FROM users
+WHERE first_name LIKE '[jhm]%';
+Example 2: Find all users with first names beginning letters between A–L.
+SELECT * FROM users
+WHERE first_name LIKE '[a-l]%';
+Example 3: Find all users with first names not ending with letters between n–s.
+SELECT * FROM users
+WHERE first_name LIKE '%[!n-s]';
+
+
+Keys
+
+In relational databases, there is a concept of primary and foreign keys. In SQL tables, these are 
+included as constraints, where a table can have a primary key, a foreign key, or both.
+
+
+
+
+Primary Key
+
+A primary key allows each record in a table to be uniquely identified. There can only be one 
+primary key per table, and you can assign this constraint to any single or combination of columns. 
+However, this means each value within this column(s) must be unique.
+Typically in a table, the primary key is an ID column, and is usually paired with the AUTO_
+INCREMENT keyword. This means the value increases automatically as new records are created.
+
+
+EX:
+REATE TABLE users (
+id int NOT NULL AUTO_INCREMENT,
+first_name varchar(255),
+last_name varchar(255) NOT NULL,
+address varchar(255),
+email varchar(255),
+PRIMARY KEY (id)
+);
+ALTER TABLE users
+ADD PRIMARY KEY (first_name);
+
+Foreign Key
+
+
+
+A foreign key can be 
+applied to one column 
+or many and is used to 
+link 2 tables together in a 
+relational database.
+As seen in the diagram 
+below, the table containing 
+the foreign key is called 
+the child key, whilst the 
+table which contains 
+the referenced key, or 
+candidate key, is called the 
+parent table.
+This essentially means 
+that the column data is 
+shared between 2 tables, 
+as a foreign key also 
+prevents invalid data from 
+being inserted which isn’t 
+also present in the parent 
+table
+
+
+EX: CREATE TABLE orders (
+id int NOT NULL,
+user_id int,
+product_id int,
+PRIMARY KEY (id),
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+Indexes: 
+
+Indexes are attributes that can be assigned to columns that are frequently searched against to 
+make data retrieval a quicker and more efficient process.
+This doesn’t mean each column should be made into an index though, as it takes longer for a 
+column with an index to be updated than a column without. This is because when indexed columns 
+are updated, the index itself must also be updated.
+
+CREATE 
+INDEX
+Creates an index named ‘idx_test’ on the first_name and surname columns of 
+the users table. In this instance, duplicate values are allowed.
+CREATE INDEX idx_test
+ON users (first_name, surname);
+
+
+CREATE 
+UNIQUE 
+INDEX
+Creates an index named ‘idx_test’ on the first_name and surname columns of 
+the users table. In this instance, duplicate values are allowed.
+CREATE UNIQUE INDEX idx_test
+ON users (first_name, surname);
+
+
+DROP 
+INDEX
+Creates an index named ‘idx_test’ on the first_name and surname columns of 
+the users table. In this instance, duplicate values are allowed.
+ALTER TABLE users
+DROP INDEX idx_test;
