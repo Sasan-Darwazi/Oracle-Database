@@ -1,0 +1,119 @@
+Views:view is virtual/logical table for the base table.
+Virtual mean, the object doesnt exist physical
+.view will not store data but the select query statement is only stroe.
+.it will create with the help of select statement.
+
+Types of views:
+---------
+1: Simple view
+2: Complex view
+
+1: SV- when we access the required data from single base table.then its called sv.
+. it can support all dml operations.
+. Simple view is also called updatable view.why updatabel, cuz it support all the dml.
+
+
+
+1: Simple view syntax:
+create view v_name
+as
+select * from (where condition);
+
+Ex: create view v1
+as
+select * from emp;
+
+Testing dml in sm:
+insert v1 values(1,'Name',200);
+update v1 set sal = 100 where id = 1;
+delete from v1 where id  = 1;
+
+Replacing view:
+create or replace view view_name
+as
+select deptno,ename,sal,job
+from emp
+group by deptno,ename,sal,job;
+
+
+
+
+
+2: CV- when we access the required data from multiple base tables then we call it sv.
+. It doesnt supports all DML operation on mulitple base tables at a time.
+. Also called as non-updatable views.
+. It supports 'select' command only, but we can not perform dml operation.
+
+.Record can be grouped. Groupd functions like, MAX,MIN,COUNT,SUM,AVG can be used.
+
+
+
+Syntax: create view v_name
+as
+select * from table_name;
+------------------------------------------
+E.G:
+First create a table:
+create table mo(
+id number(3),name varchar2(40),sal number(3));
+---------------------
+later create another table by the differ from name;
+---------------------
+create table moo (id number(3),name varchar2(30),sal number(3));
+-----------------------------------------
+
+Now it's time to create Complex view from two table:
+-----------------------
+create view vw_emp 
+as
+select * from mo
+union
+select * from moo;
+------
+Result:it show the data from two table without duplicate data.
+--------------------
+create view vw_emp 
+as
+select * from mo
+union all
+select * from moo;
+---------
+Result: it will shows the data from two table with duplicate data.
+--------------------------------------
+
+Union OPT: it can combine all data from two table without having any duplicate.
+Union All OPT: it can combine all data from two table with duplicates.
+the two tables combining as a one table.
+
+
+
+Materialized view:
+is a db object that stores query output and precomputed result.
+
+.PreCompute: to compute something in advance.
+.PreCompued the standard information
+.Using PreComputed tables/data
+
+
+Materialized view mainly created for two reason,
+1:In Databases To maintain local copy for remote database object.
+2:To imporve the performence of complex group by complex aggregate operations in data warehouse,
+and in data warehouses, most of queries in data warehouse perfomrm complex group by complex aggregate
+operation and complex joins.
+
+and Materialize view most used in data warehouses
+
+SYNTAX: Create materialized view v_name
+as
+select statement;
+
+EX:create materialized view vname
+as
+select deptno,sum(sal)
+from emp
+group by deptno;;
+
+
+if you want to update materialized view so execute this command,
+execute dbms_mview.refresh('view_name');
+the updating view is called refershin view;
