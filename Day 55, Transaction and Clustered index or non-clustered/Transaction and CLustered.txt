@@ -1,0 +1,10 @@
+Transcation:
+A Transcation is a sequence of SQL statement that are execute as a single line of work or program. it ensures data consistency and integrity by either commiting all the changes or rolling them back if an error occurs.
+
+What is difference between a clustered and non-clustered index?
+
+A Clustered index determines the physical order of data in a table. it changes the way the data is stored on disk and can be created on only one column.
+A table can have only one clustered index.
+
+A non-clustered index does not affext the physial order of data in a table. it is sotred separately and contains a pointer to the actual data.
+A table can have multiple non-clustered indexes.
