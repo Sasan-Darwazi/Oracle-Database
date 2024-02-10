@@ -1,0 +1,12 @@
+Transcation:
+A Transcation is a sequence of SQL statement that are execute as a single line of work or program. it ensures data consistency and integrity by either commiting all the changes or rolling them back if an error occurs.
+
+. DDL and DCLcommands are auto committed
+. DML Commands need to be managed
+. Transaction begins with first DBMS command
+. Transaction end when 
+  - COMMIT or ROLLBACK is issued
+  - Command editor exits
+  - System crashes
+
+. SAVEPOINT  can be placed in the transaction as a marker for rollback.
