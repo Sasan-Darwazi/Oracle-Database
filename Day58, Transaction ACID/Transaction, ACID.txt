@@ -1,0 +1,26 @@
+Transaction: Transaction access data using read write operations.
+Or, a database transaction is a sequence of muitiple operations performed on a database, and all the operation served a single logical unit.
+In order to maintain consistency in a database, before and after the trancsaction, acid properties are followed.
+ACID:
+Automactiy, Consistency, Isolation,Durability.
+
+
+Or ACID: that helps and making sure the single unit of work would be executed in dependable manner.
+
+Automicity: that database is able to perform the transcation in an atomic manner.
+
+Consistency: the database should help in achieving the correct data state.
+E.G: with adding constraint we can perform the consistency, such as adding constraint on the ID field, in order to do not add the same value.
+
+Isolation: concurrent control and how the database perform the request when the request is wrong.
+
+E.G:there is account by having 1000$
+A account  want to get 100 $.
+B account wants to get 1000$.
+
+This action will not be taken place, so long as, the database does not allow the action to be performed, which is why the isolation called concurrent control.
+
+it means, if the A account launch for the first time, the amount due will be 900 $ and there is no adequate money for the second account.
+
+Durabilty: just means once the transaction has been committed the data must be written to non-volatine memory or the storage.
+even if the crush happens or something wrong happens with the database, the database must be there and no be corrupted.
