@@ -1,0 +1,7 @@
+What is difference between a database and a schema?
+
+A database is a container that holds multiple objects, such as table, view, indexes, and procedures.
+it represents a logical grouping of related data.
+
+A schema, on the other hand, is a container within a database that holds objects and defines their ownership. it provides a way to organize and manage database objects.
+
