@@ -1,0 +1,14 @@
+What is Deadlock?
+
+A deadlock occurs when two ro more transactioins are waiting for each other to release resources, resulting in a circular dependency. 
+As a result, none of the transactions can proceed, and the system may become unresponsive.
+
+
+Note: Necessary conditions in Deadlock:
+
+1: Hold & Wait
+2: Mutual Exclusion
+3: No Preemption
+.Preemption: If your work is completed, then release the resources.
+.non-preemption: even-though your work is completed, release the lock.
+4: Circulation or circular wait.
