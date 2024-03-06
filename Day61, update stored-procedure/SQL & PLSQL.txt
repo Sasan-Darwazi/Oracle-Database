@@ -1,0 +1,12 @@
+Difference Between SQL/PLSQL:SQL is non-procedural language that executes a single query at a time whereas, PL/SQL is a procedural  alnguage and executes blocks of code at once which helps reduce traffic and increases processing speed.
+
+.PL/SQL privudes supports features such as variables, conditional(if-else statement.) and SQL does not provides support for these features.
+
+Stored Procedure:
+a S-P is also a Names PL-SQL block that accept some input in the form of parameters and performs some task and may or may not returns a value.z
+
+Procedures are created to perform one or more dml operations over database.
+
+Also A stored Procedure is a self-contained subprogram that is meant to do some specific tasks.
+Procedure stored in the database as a database object.
+and does not reutrn any value.
