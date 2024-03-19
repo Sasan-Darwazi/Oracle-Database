@@ -1,0 +1,60 @@
+Stored Procedure:
+a S-P is also a Names PL-SQL block that accept some input in the form of parameters and performs some task and may or may not returns a value.z
+
+Procedures are created to perform one or more dml operations over database.
+
+Also A stored Procedure is a self-contained subprogram that is meant to do some specific tasks.
+Procedure stored in the database as a database object.
+and does not reutrn any value.
+
+Or, A stored procedure is a set of SQL statements that are stored in the database and can be executed repeatedly. it provides code resuability and better performance.
+
+SYNTAX: create [or replace] procedure pro-name (para1, para2...)
+is
+declare statement
+Begin
+Exuctable statements
+
+ procedure name;
+
+/
+
+
+
+
+Note: if you want apply the created procedures another time, just enter 
+the (/) and empno which you have given before.
+E.G:/
+1;
+------------------------------------
+IF/elseif/else.
+E.G: This is a true/false example.
+declare
+a int:=1;
+begin
+if a = 1 then
+dbms_output.put_line('The number is 1');
+elsif a = 2 then
+dbms_output.put_line('The number is 2');
+elsif a = 3 then
+dbms_output.put_line('The number is 3');
+else
+dbms_output.put_line('The unknown number');
+end if;
+end;
+/
+-------------------------------------------------
+
+E.G: Another example with varchar type.
+declare
+name varchar2(40):= 'Sasan';
+begin
+if name = 'Ahmad' then
+dbms_output.put_line('Correct Ahmad');
+elsif name = 'Sasan' then
+dbms_output.put_line('Correct Sasan');
+else
+dbms_output.put_line('Unknown name');
+end if;
+end;
+/
