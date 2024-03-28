@@ -1,0 +1,26 @@
+How to handle this error in oracle database? = column ambiguously defined? 
+
+
+SQL> select dname,deptno,sum(sal) from emp inner join dept
+  2  on emp.deptno = dept.deptno
+  3  group by dname,deptno;
+group by dname,deptno
+               *
+ERROR at line 3:
+ORA-00918: column ambiguously defined
+
+Note: Here, Oracle SQL Engine will get confused or baffled because it does not recognize which table's "name", column should be selected, which throws columns ambiguosuly defined.
+In next I am going to provide the precise query how to handle or refrain ambigous columns.
+
+This types of errors mostly happen in joins connectins.
+
+E.G:
+SQL> select dept.dname,emp.deptno,sum(sal) from emp inner join dept
+  2  on emp.deptno = dept.deptno
+  3  group by dept.dname,emp.deptno;
+
+DNAME              DEPTNO   SUM(SAL)
+-------------- ---------- ----------
+ACCOUNTING             10      14300
+RESEARCH               20      11075
+SALES                  30       9400
