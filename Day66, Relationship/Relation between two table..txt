@@ -1,0 +1,8 @@
+Relation: between two table.
+Tuple: records on the tables.
+Attributes: A field or a column in a relation.
+Cardinality of a relation: the number of tuples or records in a relation.
+Degree of a relation: The numbers of attributes in a relation.
+Domain of an attribute: The set of all values that can be taken by the attribute.
+Primary key: An attribute or a combination of attributes that uniquely defines each tuple in a relation:
+Foreign key: An attribute or a combination of attributes in one relation R1 that indicates the relationship of R1 with another relation R2. The foreign key attributes in R1 must contain values matching with those of the values in R2.
