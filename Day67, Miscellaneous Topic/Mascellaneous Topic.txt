@@ -1,0 +1,76 @@
+Mascellaneous Topic:
+
+Projection: Is something when you want project something, or means choosing which colums or expressions the query shall return.
+Or dispaly particular columns based on the user request.
+
+
+E.g; write a query to display name and USN of the student whose age is greater than 21.
+
+select name,usn from student where age = 21;
+
+Selection: Means which rows to be returned.
+or selection is the process of displaying the result of using select queries.
+
+E.G: write a query to display all the information of student named "Darwish"
+select * from student where name = "darwish";
+
+
+Case Sensitity in SQL.
+The SQL keyword are case-insensitive (select, from, where, as, order by, having, group by), but are usually written in all capitals.
+
+1.Keywords in SQL in not case sensitive.
+2. Table names in SQL are not case sensitive.
+3. Column names in SQL are not case sensitive.
+4. Data in SQL is case sensitive. E.G to record in a table with different writting in small and capital letters.
+
+
+E.G: select name,age from student where name = 'RAVI';
+
+
+Datataypes: A data type specifies a particular type of data, such as integer, floating-point, boolean etc.
+
+A data type also specifies the possible values for that type, the operation that can be performed on the type and the way the values of that type are stored.
+
+Char: fixed-length character data of lenght of bytes.
+varchar: varaibles-length character data A maximum size must be specified.
+varchar2: varaible-length characater data. A maximum size must be specified.
+
+Number: in number data type we have two keyword Precision and Scale.
+Variables-length numeric data. Range of P: from 1 38, Range of S: from -84 to 127.
+
+
+Float: A subtyoe of the number datatype having precision P. the precision p can range from 1 to 12 binayr digits.
+
+Date: Fixed-length data and time data, valid data range: from January 1, 4712 BC, to December 31, 9999 AD.
+
+
+Concatnation in SQL:
+ e.g: select ename,sal+2000 from emp;
+ select ename,sal+ 5000 from emp;
+ select ename,job,sal from emp;
+ select ename,sal+12 from emp where ename = 'Sasan';
+
+or joining two things or to combining multiple column.
+
+e.G: select ename || job from emp;
+     select ename || ' Hello ' job from emp;
+
+
+Column Alisa: Temporary name to a particular table or emp name.
+Two method for performing this action.
+
+E.G:select ename as emp_name,job,sal,hiredate as emp_date from emp;
+
+
+Distinct Keyword: distinct data not the repeat it one or iterate data.
+
+
+Dual table: is a default table which given defaulty by oracle.
+Dual is kind of practise table where you can correct your query and then run it on the server.
+
+e.g: select sysdate from dual;
+
+
+
+
+
