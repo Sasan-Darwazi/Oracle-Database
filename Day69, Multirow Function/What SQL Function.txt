@@ -1,0 +1,33 @@
+What SQL Function?
+function are the object in sql which take on or more input from user, execute operation on input and produce one or more output.
+
+SQL Divieded two types of functions.
+1:Aggregate functions,Group Function, Muilty row Function.
+2:Single row Functions
+
+1:Multi row Functions: works on the record of the table and produce single output that means if your table contains N number of records then its produce single output.
+and they are,
+.count(),it counts the records on a existence table.
+E.G:select ename,count(*) from emp;
+E.GLselect count(ename) from emp;
+
+.sum(),it cumulate all the emp sal.
+E.G:select sum(sal) from emp;
+
+.avg(),show the avg sal of emp's.
+E.G:select avg(sal) from emp;
+E.G:select dept.dname,avg(sal) from emp inner join dept
+on emp.detpno = dept.deptno
+group by dept.dname;
+
+.max(),it shows the max sal's of emp's
+E.G:select max(sal) from emp;
+
+.min(),it show the min sal's of emp's
+E.G:select min(sal) from emp;
+
+.stddev(),This function takes a column name or expression as input and returns the statistical standard deviation of all specified valuees. it only works with numric columns.
+Or, it shows the data which be based on the statistics.
+
+.variance(),the variation shows the population standard variance in SQL.
+it returns NULL if in the given expression no matching rows are found. it only works with numbers.
