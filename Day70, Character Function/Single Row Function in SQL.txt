@@ -1,0 +1,89 @@
+Single Row functions: each record deliver single output, and select one record.
+Or,Single Row Function accept argument and return one value.
+E.G:if it's 10 record, it execute ten times.
+and they are:
+.Character Functions
+.Number Functions
+.Date Functions
+.Conversion Functions
+.General Functions
+.Time Functions
+
+
+
+
+
+
+1:Character Function:it's classfied into two category,
+A:Case manipulation functions
+.Upper
+E.G:select upper(ename) from emp;
+
+.Lower
+E.G:select lower('SASAn') from dual;
+
+.initcap
+E.G:select inicap(ename) from emp;
+
+B:String Manipulation Functions
+.length
+E.G:select length(ename) from emp;
+select length('Sasan') from emp;
+
+.concat
+Query: write a query to concatenate data 'Sasan' & 'raja';
+
+select 'Sasan' || 'Darwazi' from dual;
+select concat ('Sasan','Sasa') from dual;
+
+
+.lpad
+E.G:select lpad(ename,10,'#') from emp;
+
+select lpad('Sasan',10,'@') from dual;
+
+
+
+.rpad
+E.G:selct rpad(ename,10,'#') from emp;
+
+E.G: select rpad('Sasan',10,'@') from dual;
+ 
+.rtrim
+E.G:select rtrim('oracle','e') from dual;
+
+.ltrim
+E.G:select ltrim('oracle,'o') from dual;
+
+.trim
+E.G:select trim(ename,job,sal) from emp;
+select trim(leading 'a' from 'Sasan') from dual;
+
+Leading Meaning, first character of a String;
+
+e.G: select trim('Trailing 'a' from 'Sasan') from dual;
+
+Trailing meaning, the last character of string.
+
+
+.translate:it turn a character into number
+E.G:select translate('Americal,'ric',456) from dual;
+
+.replace:it is the similar query to translate;
+E.G:select replace('Sasan','Sas',012) from dual;
+
+.substr: substr it cut or separate the letter of a word by numbers.
+E.G:select substr(ename,1,4) from emp;
+E.G:select substr('Sasan',0,3) from dual;
+
+select substr('Sasan',3,6) from dual;
+
+
+.instr:this function bring out the letter of a word and turn it into number.
+E.G:select instr('America','r') from dual;
+
+select instr('character','a') from dual;
+
+.reverse:it reverse a word or turn it into vice versa.
+E.G:Select reverse('Sasan Darwazi') from dual;
+	
