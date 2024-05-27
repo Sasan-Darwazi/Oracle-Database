@@ -1,0 +1,28 @@
+Databsae Objects: A database object is any defined object in a database that is used to store or reference data. anything which we make from create command is known as database object. it can be used to hold and manupulate the data.
+As typical case, Database objects are...
+.Table: composed row and columns
+.View: virtual table from base table.
+.Sequence: generates primary key values.
+.Index: improves the performance f soem queires.
+.Synonym: Alternative name for an object.
+
+Synonym: to create an alternative name for database or table, you can use it by synonym.
+e.g: create synonym branch for emp;
+drop synonym branch.
+
+
+Sequence: create sequence seq_one
+start with 1
+increment by 1
+minvalue 0
+maxvalue 100
+cycle;
+
+create sequece seq-two
+start with 100
+increment by -1
+minvalue 1
+maxvalue 100
+cycle;
+
+ 
