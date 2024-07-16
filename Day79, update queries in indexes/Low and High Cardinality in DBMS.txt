@@ -1,0 +1,4 @@
+What is Low-Cardinality & High-Cardinality:
+Low cardinality refers to database that has a lot of repeated values like status flags, boolean values, or gender.
+
+.High-cardinality: refers to a databsae that has a large numbers of distinct values such is ID,name, email, address and so on.
