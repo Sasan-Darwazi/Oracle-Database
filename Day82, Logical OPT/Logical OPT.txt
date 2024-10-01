@@ -1,0 +1,59 @@
+Set Opertator.
+To combine two or more than two select statement.
+
+
+
+Logical Operator:
+And: Compress between two boolean as expression and returns true when both expressions are true...
+-----------------------------------------------------
+E.G: select * from emp where empno = 7369 and ename = 'SMITH';
+
+
+
+Or:Compress between two booleans as expression and returns true when any one of the expression is true.
+--------------------------------------------
+E.G:
+select * from emp where empno = 7369 or ename = 'MILLER';
+select * from emp where empno = 7369 or ename = 'SASAN';
+select * from emp where job = 'SALESMAN' or job = 'MANAGER'
+or job = 'PRESIDENT';
+
+
+
+
+Not: is used to negate or invert or reverse the condition.
+which means. if the condition evaluates true then not convert into false, if the condition evalutes false then not convert into true.
+
+select * from emp where not ename = 'SMITH'
+order by ename asc;
+this ex will not shown the ename which named by smith, as for the first condition.
+----------------------------------------------------------------------
+
+
+
+
+
+
+Between OPT:Between opt always works with numbers and date and its used between two value.
+Between opt always fitch with And opt.
+
+E.G: select * from emp where sal between 1000 and 2000;
+---------------------------------------------------------------------
+
+
+IN OPT: If you want to search multiple value, then use IN OPT.
+select * from emp where job in('MANAGER','CLERK');
+
+select * from emp where ename in('SMITH','JAMES');
+
+select deptno,ename,job from emp where deptno in (10,20);
+----------------------------------------------------------------
+
+Like OPT: fitch with similar to some value if exist.
+E.G:
+select * from emp where ename like '%S%';
+
+
+
+
+
