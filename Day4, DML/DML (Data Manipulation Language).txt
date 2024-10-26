@@ -1,0 +1,10 @@
+DML (Data Manipulation Language): 
+Insert, Update, Delete.
+Insert: It is used to insert a single or multiple record in a table.
+E.G: insert into table-name values('Sasan');
+
+Update: Is used to modify the existing records in a table.
+E.G: update emp set name = 'ahmad' where ename = 'Clerk';
+
+Delete: This is used to delete existing records in a table.
+E.G: delete from emp where ename = 'Sasan';

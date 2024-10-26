@@ -1,0 +1,20 @@
+DCL (Data Control Language): Grant, Revoke.
+A Data Control Language or DCL, is a computer programming language used to control user access to data stored in a database.
+
+.Privilege: is permission given by DBA.
+It provides the right to execute a particular type of SQL Stmt.
+It also gives the right to connect the database and create a table or schema.
+
+Grant: gives user access privileges to a database, DBA gives this permission.
+NOTE: Connect yours to the user where you want to permit another user.
+E.G: grant select, insert, and update on table-name or user-name;
+
+>.Privileges: can be divided into two parts.
+.System privileges (DDL),(create, drop, truncate, and alter);
+.Object privileges (DCL, DML) = (Insert, update, and delete);
+
+E.G: select Permission: Grant select on table-name to user-name.
+Grant select on emp to ass;
+
+Revoke: is Used to take back the given privileges to the user.
+E.G: Revoke select, update on my table-name from user-name;
