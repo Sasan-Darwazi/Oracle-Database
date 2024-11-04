@@ -1,0 +1,36 @@
+Day5:
+Inner join: 
+whenever when you want to get data from two tables you need to join.
+inner join or equal join retrieving data from the multiple/two table based on
+equality condition which means it is used just ( = ).
+
+E.G: this example will show all the records from both tables based on the inner join clause.
+select c.c_name,c.c_lname,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id;
+
+---------------------
+E.G: This example will show the record based on record names and whatever user write.
+select c.c_name,c.c_lname,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id
+  4  where c.c_name = 'Ahmad'; 
+-----------------------------------
+
+E.G: This example will show the record that ordered Iphone?
+select c.c_name,o.o_name from customer c
+  2  inner join orders o
+  3  on c.c_id = o.c_id
+  4  where o.o_name = 'Iphone';
+--------------------------
+
+E.G:This example same as above example.
+select c.c_name,o.o_name from customer c, orders o
+where c.c_id = o.c_id and c.c_name = 'Nadir';
+
+
+
+
+non-equi join: Retrieving data from multiple/two table based on
+not equality condition which means it is used any condition except ( = ).
+OPT which gets used ( <, >, <=, >=, !<, !>, !=, between , and),
