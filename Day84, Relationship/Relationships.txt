@@ -1,0 +1,71 @@
+Relationship: The logical association among entities is called a relationship.
+
+So, we have four kinds of relationships:
+One to One ==  Relationship in DBMS is a relationship between one instance of an entity with one example of another entity.
+
+E.G: Uni vs Principle
+----------------------
+Many to Many == Relationship in DBMS is a relationship between more than one instance of an entity with more than one instance of another entity.
+It means, both entity can have many relationships between each other.
+
+E.G: Writer vs Book
+----------------------
+On to Many == One-to-Many relationship in DBMS is a relationship between instances of an entity with more than one instance of another entity.
+
+E.G: Customer vs Order. a customer can have many orders.
+--------------------------
+Many to One: Relationship in DBMS is a relationship between more than one instances of an entity with one instance of another entity.
+
+E.G:Project vs Student.  many project can be worked by one std.
+
+
+--------------------------------------------------------------------
+One to One: This is sorts of relationship which both side has One-Relation to each other.
+E.G: create table uni(
+uni_id number(3) primary key,
+uni_name varchar2(40),
+uni_location varchar2(50));
+-------------------------------
+create table principle(
+p_id number(4) primary key,
+p_name varchar2(100),
+uni_id number(3),
+constraint fk_uni_prin foreign key(uni_id)
+references uni(uni_id);
+---------------------------------------------------
+
+Many to Many: This sorts of relation has many relation at each other.
+E.G Writer vs Book
+
+create table book(
+b_id number(3) primary key,
+b_name varchar2(40));
+
+create table author(
+a_id number(3) primary key,
+a_name varchar2(40);
+
+create table b_writer(
+b_id number(3),
+a_id number(3),
+constraint fk_b_bw foreign key(b_id)
+references book(b_id),
+constraint fk_a_bw foreign key(a_id)
+references author(a_id));
+--------------------------------------------
+
+One-to-Many: create table customer(
+c_id number(3) primary key,
+c_name varchar2(40));
+
+create table orders(
+o_id number(3) primary key,
+o-name varchar2(40),
+c-id number(3),
+constraint fk_cus_ord foeign key(c_id) references customer(c_id));
+----------
+E.G:select * from customer,orders
+where customer.c_id = orders.c_id;
+
+E.G:select customer.c_name,o.o_name from customer,order
+where customer.c_id = orders.c_id;
