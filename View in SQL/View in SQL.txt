@@ -1,0 +1,36 @@
+Views: view is a virtual/logical table for the base table.
+Virtual means, the object doesn't exist physically
+.view will not store data but the select query statement is only stored.
+.it will be created with the help of a select statement.
+
+Types of views:
+---------
+1: Simple view
+2: Complex view
+
+1: SV- when we access the required data from a single base table. then it's called Simple View.
+. it can support all DML operations.
+. A simple view is also called an updatable view. why updatable, it supports all the DML.
+
+
+
+1: Simple view syntax:
+create view v_name
+as
+select * from (where condition);
+
+Ex: create view v1
+as
+select * from emp;
+
+Testing dml in sm:
+insert v1 values(1,'Name',200);
+update v1 set sal = 100 where id = 1;
+delete from v1 where id  = 1;
+
+Replacing view:
+create or replace view view_name
+as
+select deptno,ename,sal,job
+from emp
+group by deptno,ename,sal,job;
