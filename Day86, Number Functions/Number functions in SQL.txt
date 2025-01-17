@@ -1,0 +1,54 @@
+2:Number Functions: N/F manipulates the numeric value and returns a numeric value as a result.
+Here, input is always a number and output is also a number.
+And they're...
+1:ABS: shows the exact number;
+E.G:select abs(-450) from dual;
+
+2:ceil: shows the highest number in a value;
+E.G:select ceil(5.9) from dual;
+
+3. floor: shows the lowest number in values;
+E.G:select floor(5.9) from dual;
+
+4. power: the show has a bigger number of arguments;
+E.G:select power(5,4) from dual;
+
+5.mod: the mod() function is used to get the reminder from a division.
+E.G:select mod(5,1) from dual;
+E.G:select mod(5,2) from dual;
+
+Query: What would be the output of the following query?
+
+
+E.G:select mod(60,2) from dual;
+
+6.sqrt: it shows the square of a number;
+E.G:select sqrt(100) from dual;
+
+
+7. Round Function: it does round off every input number, or it specifies a decimal place for a number.
+
+query: what would be the output of the following query?
+E.G: select round(95.528,2) from dual;
+
+11. trunk: it removes the decimal numbers;
+E.G:select trunc(12.4) from dual;
+
+select runc(135.256,2) from dual;
+
+
+NVL (Null value);
+Query: write a query to displace the age if age is null replace it with 0.
+
+E.G:select nvl(age,0) from emp;
+
+
+Query: write a query to display the age. if age is null replace it with 0 else replace it with 28.
+
+E.G: select nvl2(age,29.0) from emp;
+
+Oracle NULLIF() function: accept two arguments. it returns a null value if the two arguments are equal.
+In case the arguments are not equal, the NULLIF() function returns the first arguments.
+
+E.g: select NULLIF(100,100) from dual;
+E.G: select NULLIF(100,200) from dual;
