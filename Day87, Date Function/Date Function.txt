@@ -1,0 +1,49 @@
+Date Function: Date function always take input as date and return either date or number of character.
+And they're:
+1-Sys date:shows the system date:
+E.G:select sysdate from dual;
+
+2-current date:shows the current date:
+E.G:select current_date from emp;
+
+Here is catch:difference between current_date and sysdate:
+E.G:select add_months(current_date,3) from dual;
+E.G:select add_months(sysdate,-2) from dual;
+
+3-add-month:thisn function add months above date.
+E.G:Select add_months(current_date,4) from dual;
+
+select add_months('24-Mar-2018',7) from dua;
+
+4-last-day:this function shows the last_Day of a date.
+E.G:select last_day(sysdate) from dual;
+E.G:select last_day(current_date) from dual;
+E.G:select last_day('01-Feb-2023') from dua;
+
+5-next-day:this function shows the next_day of a date.
+E.G:select next_day(sysdate,'Monday') from dual;
+E.G:select next_day(to_date('01-jan-2023'),'Saturday') from dual;
+
+select next_day('14-Feb-14', 'Friday') from dual;
+
+6-month-between:this function shows the date between months:
+E.G:select months_between(sysdate,hiredate)hiredate,sysdate from emp;
+E.G:shows the ename and working experience.
+select ename,hiredate,months_between(sydate,hiredate) as experience from emp;
+E.G:show emp working experience as year.
+select ename,months_between(sysdate,hiredate)/12 as year from emp;
+
+
+Query: write a query to display the number of month between the date 24-dec-218 and 24-mar-2010;
+
+E.G: select months_between('24-DEC-2018', '24-Mar-2018') from dual;
+
+
+8-to-character:this function convert number and date to string value.
+.return varchar2 data type.
+E.G:select to_char(hiredate,'yyyy') from emp
+group by to_char(hiredate,'yyyy');
+E.G:select ename,to_char(hiredate,'yyyy')as year,count(*) from emp
+group by ename,to_char(hiredate,'yyyy');
+
+select l_name to_char(hiredate, 'DD/MM') from emp;
