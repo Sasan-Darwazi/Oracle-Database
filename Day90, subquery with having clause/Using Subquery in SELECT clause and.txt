@@ -1,0 +1,20 @@
+Using Subquery in SELECT clause and Having.
+
+
+E.G.: select * , (case when sal > (select avg(sal) from emp)
+then 'Higher than average'
+else null
+end )
+as remarks
+from emp;
+
+Question: Find the stores that have sold more units than the average units sold by all stores.
+
+Query:  select store_name, sum(quantity) from store group by store_name;
+ this query shows the total items that is sold.
+
+select avg(quantity)
+
+select store_name,sum(quantity) from store group by store_name
+having sum(quantity) > (select avg(quantity) from store);
+
