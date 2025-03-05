@@ -1,0 +1,13 @@
+RDBMS: A relational database is a type of database that stores and provides access to data points related to one another.
+Relational databases are based on the relational model.
+In a relational database, each row in the table is a record with a unique ID called the key.
+
+Or, A relational database is the most commonly used table. It contains several tables, and each table has its primary key.
+
+Table: Everything in a relational database is stored in the form of relations. A table is a collection of related data and contains rows and columns to store data.
+
+ROW: A row of a table is also called a record or tuple. It contains the specific information of each entry in the table.
+
+Column: A column is a vertical entity in the table that contains all information associated with a specific field in a table.
+For example: The name is
+ column in a table.

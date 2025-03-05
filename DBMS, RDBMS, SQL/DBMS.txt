@@ -1,0 +1,28 @@
+DBMS: Database Management Systems are software management systems that store, retrieve, and run queries on data. A DBMS serves as an interface between an end-user and a database, allowing users to create, read, update, and delete data in the database.
+
+
+The Most widely used types of DBMS software are relational, distributed, hierarchical, object-oriented, and network.
+
+
+Distributed database management system.
+A distributed DBMS is a set of logically interrelated or interconnected databases distributed over a network that is managed by a centralized database application. This type of DBMS synchronizes data periodically and ensures that any change to data is universally updated in the database.
+
+
+Hierarchical database management system
+Hierarchical databases organize model data in a tree-like structure. Data storage is either a top-down or bottom-up format and is represented using a parent-child relationship.
+
+
+Network database management system.
+
+The network database model addresses the need for more complex relationships by allowing each child to have multiple parents. 
+
+
+Object-oriented database management system.
+
+Object-oriented models store data in objects instead of rows and columns. It is based on object-oriented programming (OOP) that allows objects to have members such as fields, properties, and models.
+
+Example of DBMS
+
+.Oracle
+.MySQL
+.SQL Server

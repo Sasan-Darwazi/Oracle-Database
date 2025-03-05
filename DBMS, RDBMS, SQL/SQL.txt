@@ -1,0 +1,88 @@
+SQL: it stands for structured query language.
+
+This database language is mainly designed to maintain data in relational database management systems.
+
+
+.SQL is the standard language for accessing and manipulating databases.
+
+Database: A database is an organized collection of structured information, and data, which is typically stored electronically in the computer system.
+
+
+Types Of SQL Commands.
+DDL (Data Definition Language): Used to change the structure of the table like creating the table, altering the table, & Deleting the Table. Create, Alter, Drop, Truncate.
+
+Alter: Allows you to add, modify and delete, rename, constrain columns of an existing table.
+1-E.G: alter table table-name add column-name datatype; = Single-column
+
+2-E.G: alter table name add (address varchar2(40),phone number(10)); = Multiple-Column.
+
+3-E.G: This is for modifying the table datatype ranges.
+Alter table name modify name varchar2(40);
+
+4-E.G: for deleting the column: alter table name drop column phone;
+
+5-E.G: Renaming the column: alter table name rename column column-name to new-column-name = alter table name rename column salary to wage.
+
+
+6-E.G: Renaming the table-name: alter table table-name rename to new-name. = alter table name rename to location;
+
+7-E.G: How to add constraint: alter table name add constraint constraint-name unique (column-name) = alter table ID add constraint restrict unique (name);
+
+8-E.G: How to add foreign key constraint?:
+Syntax: alter table name add constraint restricts foreign key (foreign-key-column) references (Main-table column-name) (references column-name).
+
+Alter table name add constraint restricts foreign key (Eid) references name(ID);
+
+
+9-E.G: How to drop a constraint:
+Syntax: alter table table-name drop constraint cons-name;
+
+Drop: is used to drop an existing table in the database. This command deletes both the structure & Records Stored in the table.
+E.G: drop table table-name
+
+Truncate:  This is used to remove all rows (Complete data) from a table. It is similar to the DELETE with no WHERE clause.
+
+E.G: Truncate table person;
+
+DML (Data Manipulation Language): 
+Insert, Update, Delete.
+Insert: It is used to insert a single or multiple record in a table.
+E.G: insert into table-name values('Sasan');
+
+Update: Is used to modify the existing records in a table.
+E.G: update emp set name = 'ahmad' where ename = 'Clerk';
+
+Delete: This is used to delete existing records in a table.
+E.G: delete from emp where ename = 'Sasan';
+
+
+DCL (Data Control Language): Grant, Revoke.
+A Data Control Language or DCL, is a computer programming language used to control user access to data stored in a database.
+
+.Privilege: is permission given by DBA.
+It provides the right to execute a particular type of SQL Stmt.
+It also gives the right to connect the database and create a table or schema.
+
+Grant: gives user access privileges to a database, DBA gives this permission.
+NOTE: Connect yours to the user where you want to permit another user.
+E.G: grant select, insert, and update on table-name or user-name;
+
+>.Privileges: can be divided into two parts.
+.System privileges (DDL),(create, drop, truncate, and alter);
+.Object privileges (DCL, DML) = (Insert, update, and delete);
+
+E.G: select Permission: Grant select on table-name to user-name.
+Grant select on emp to ass;
+
+Revoke: is Used to take back the given privileges to the user.
+E.G: Revoke select, update on my table-name from user-name;
+
+
+TCL (Transaction Control Language): Commit, Rollback.
+Commit: is Used to save all the transactions to the database since the last COMMIT or ROLLBACK command.
+
+Syntax: commit;
+
+Rollback: if any error occurs with any of the SQL grouped stmt, all changes need to be aborted. The process of reversing changes is called rollback.
+
+Syntax: Rollback.
