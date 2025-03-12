@@ -1,0 +1,38 @@
+Grant:
+.First, connect to system user;
+then,
+create user name identified by pwd;
+
+--When you want to give the privilege to name the user, then connect to the system user again.
+
+--grant connect to name;
+-- grant selects on emp to name; this is for giving privilege to a table.
+                   t_name    user_name
+--grant delete on emp to name;
+--grant update on emp to name;
+--grant truncate on emp to name;
+
+--Grant resource to Scott;
+
+select * from system.emp;
+
+those above examples give individual privileges to the user.
+eg: grant all on emp to name;
+
+Revoke:
+revoke select on system.emp from name;
+e.G: revoke insert-update,delete on system.emp from name;
+e.G: revoke all on system.emp from name;
+e.G: revoke connect from name;
+
+
+User-Creation: create user ass identified by 12345;
+given permission to user: grant connect to ass;
+or: grant resource to ass;
+
+
+
+How to show users:
+1:Information about your users:select * from user_users;
+2:select all users: select * from dba_users;
+3:select username,account_status,created from dba_users order by 1
