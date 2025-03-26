@@ -1,0 +1,20 @@
+Compare OPT:
+compare > >= < <= = != <>
+
+
+= OPT: 
+E.G: select ename,job, sal from emp where ename = 'KING';
+
+
+E.G: select ename, sal, hire date from emp where job = 'SALESMAN';
+
+
+> OPT:
+select ename,job, sal from emp where sal > 2000;
+
+
+
+<> OPT: this OPT shows between numbers.
+E.G: this ex shows the 10,30 dept except 20;
+select ename, job, sal from emp where depton <> 20;
+run

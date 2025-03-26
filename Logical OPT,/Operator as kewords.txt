@@ -1,0 +1,61 @@
+OPT As Keywords:
+E.g; Equal to =
+Greateer than >
+Lesster than <
+Greateer than or equal to >=
+Lesser than or equal to <=
+Not equal to !=
+Not equal to <>
+
+E.G:
+select USN,name, age from student where age = 10;
+select ename,job,sal from emp where sal > 1000;
+select ename,job,sal from emp where sal < 5000;
+select sal,count(*) from emp where sal >= 2000
+group by sal;
+select deptno,count(*) from emp where deptno <> 10;
+
+1- Betweena and Operator:for example the age should be between 20 and 10;
+e.G:: select ename,job,sal from emp where sal  between 1000 and 2000;
+
+Or, not between the range we use from not between.
+E.g: select ename,job,sal from emp where sal not between 1000 and 2000;
+
+2- IN OPT: whenever when you want to all the details from something.
+select ename,job,sal from emp where sal in (1000,20000);
+select ename,job,sal,loc from emp where location in('x','x');
+
+3- Like OPT: it shows that something is similar or look alike to something.
+E.G:select * from emp where ename like '%S%';
+E.G: write a query to display all the details of the student whose names start with 'RA';
+
+E.G:select * from emp where ename like '%RA%';
+
+__ we use underscore for a specific aim or goal, here we are,
+for example, write a query to dispaly all the details of the student whose names fourth character is 'i' from the student table.
+
+E.G:select * from emp where ename like '___i%';
+Note: you need to add underscore based on character that you dont know.
+in above example we add three underscore and the last character is clear.
+
+
+
+4_ is null OPT:
+it is used to select only the record with null values in the columns;
+
+E.G: write a query to display all the details of the student whose age is null from student table.
+
+E.G: select * from student where age is null.
+
+
+5- Logical OPT: are used to shows logical queries.
+.AND: True if all the conditions separated by AND is True.
+.Or: True if any of the conditions separated by OR is true.
+.NOT: Display a record if the conditions is not True.
+
+Query: Write a query to display all the details of the student whose marks is greater than 85 and their names should not start with 'R' from student tables.
+
+E.G: select * from student where marks > 85 and name not like '%R%';
+E.G: SELECT * FROM EMP WHERE SAL > 3000 AND ENAME NOT LIKE '%S%';
+
+
